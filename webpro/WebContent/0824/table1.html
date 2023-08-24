@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  table {
+  	border: 5px solid blue;
+  	margin: 20px;
+  }
+  th {
+  	height: 60px;
+  	background: blue;
+  	color: white;
+  	font-size: 1.5rem;
+  }
+  td {
+  	width: 200px;
+  	height: 50px;
+  	text-align: center;
+  }
+  
+  table#tab2 {
+  	border : 10px outset red;
+  }
+  table#tab2 th {
+  	background: gold;
+  	color: blue;
+  	width: 400px;
+  }
+  
+  table#tab3 {
+  	border-collapse: collapse;
+  }
+  
+  table#tab4 {
+	border-spacing: 20px;  
+  }
+  
+  table#tab4 th {
+  	/* border-bottom: 5px solid red; */
+  	border: 10px double red;
+  	border-left: none;
+  	border-right: none;
+  }
+</style>
+</head>
+<body>
+  <table border="1">
+  	<tr>
+  	  <th>1</th>
+  	  <th>2</th>
+  	  <th>3</th>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td>1</td>
+  	  <td>2</td>
+  	  <td>3</td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  </table>
+  
+  <table border="1" id="tab2">
+  	<tr>
+  	  <th>1</th>
+  	  <th>2</th>
+  	  <th>3</th>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td>1</td>
+  	  <td>2</td>
+  	  <td>3</td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  </table>
+  
+  <h2>border-collapse: collapse;</h2>
+  <table border="1" id="tab3">
+  	<tr>
+  	  <th>1</th>
+  	  <th>2</th>
+  	  <th>3</th>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td>1</td>
+  	  <td>2</td>
+  	  <td>3</td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  </table>
+  
+  <h2>border-spacing: 20px;</h2>
+  <table border="1" id="tab4">
+  	<tr>
+  	  <th>1</th>
+  	  <th>2</th>
+  	  <th>3</th>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td>1</td>
+  	  <td>2</td>
+  	  <td>3</td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  	
+  	<tr>
+  	  <td></td>
+  	  <td></td>
+  	  <td></td>  	  
+  	</tr>
+  </table>
+  
+</body>
+</html>

@@ -1,0 +1,11 @@
+pre {
+	font-size : 1.5rem;
+	background : #aadafd;
+	margin : 50px;
+	
+	border : 15px solid red;
+	border-left : none;
+	border-right : none;
+	
+	padding : 20px;
+}

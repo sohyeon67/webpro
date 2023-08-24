@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>속성</title>
+		<link rel="stylesheet" href="../css/public.css">
+		<style>
+			pre {
+				font-size : 2.5em;
+				background : #aadafd;
+				margin : 50px;
+				
+				border-top-width : 5px;
+				border-top-color : red;
+				border-top-style : solid; /* double solid dotted dashed inset outset */
+				
+				border-bottom-color : blue;
+				border-bottom-style : double;
+				border-bottom-width : 8px;
+				
+				border-left : 6px dotted green;
+				border-right : 10px dashed pink;
+				
+				border : 15px outset red;
+				border-left : none;
+				border-right : none;
+				
+				padding : 20px; /* 오른쪽 이미 여백있어서 적용안됨(?) */
+			}
+			
+			a {
+				font-size : 2.0em;
+				margin : 20px;
+				/* border : 2px solid blue; */
+				padding : 20px;
+			}
+		</style>
+	</head>
+	
+	<body>
+	<!-- a 태그 : 페이지이동을 위한 태그
+			이동할 페이지를 href속성에 설정한다 -->
+	<!-- pre 태그는 화면에 입력하는 형식대로 출력된다 -->
+		<pre>
+			a 태그 : 페이지이동  을 위한 태그
+			이동할 페이지를 href 속성에 설정한다
+			target : 이동페이지를 새로운 탭 또는 현재탭에서 실행한다
+			기본값은 target = "_self" 현재탭에서 실행한다
+		</pre>
+			
+		<a href="http://www.naver.com" target="_blank">네이버</a>
+		<a href="http://www.daum.net" target="_blank">다음</a>
+		<a href="http://www.nate.com">네이트</a>
+		<a href="http://www.w3.org">W3C</a>
+		<a href="http://www.ddit.or.kr">대덕인재개발원</a>
+	</body>
+
+</html>

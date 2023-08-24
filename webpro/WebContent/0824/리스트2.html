@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+</head>
+<style>
+  div {
+  	border: 2px solid red;
+  	margin: 10px;
+  	padding: 5px;
+  	width: 15%; /* body 기준 비율 */
+  	height: 230px;
+  	float: left;
+  }
+
+  h3 {
+  	border: 1px solid blue;
+  	width: 90%; /* div 내에서 비율 */
+  }
+  
+  ol {
+  	width: 80%;
+  	border: 1px solid blue;
+  }
+
+  #o2 {
+  	list-style-type: upper-alpha;
+  }
+  
+  #o3 {
+  	list-style-type: lower-roman;
+  }
+  
+  #o4 {
+  	list-style-type: hangul;
+  }
+  
+  #o5 {
+  	list-style-image: url('../images/check.png');
+  }
+  
+  hr {
+  	clear: both;
+  }
+</style>
+<body>
+  <pre>
+ 	밑으로 배치되는 블럭요소를 옆으로 배치하기 위해서
+ 	float: left; / float: right;
+ 	
+ 	해제하고자 하는 요소에서
+ 	clear: both;
+  </pre>
+  <div>
+  <h3>list-style-type : decimal</h3>
+  <ol id="o1">
+ 	<li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+    <li>JQUERY</li>
+  </ol>
+  </div>
+  
+  <div>
+  <h3>list-style-type: upper-alpha</h3>
+  <ol id="o2">
+ 	<li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+    <li>JQUERY</li>
+  </ol>
+  </div>
+  
+  <div>
+  <h3>list-style-type: lower-roman</h3>
+  <ol id="o3">
+ 	<li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+    <li>JQUERY</li>
+  </ol>
+  </div>
+  
+  <div>
+  <h3>list-style-type: hangul</h3>
+  <ol id="o4">
+ 	<li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+    <li>JQUERY</li>
+  </ol>
+  </div>
+  
+  <div>
+  <h3>list-style-image: url('../images/check.png')</h3>
+  <ol id="o5">
+ 	<li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+    <li>JQUERY</li>
+  </ol>
+  </div>
+  
+  <hr color='green'>
+  <ul>
+  	<li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+    <li>JQUERY</li>
+  </ul>
+  
+</body>
+</html>
