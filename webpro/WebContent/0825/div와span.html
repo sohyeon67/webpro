@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/*
+  body {
+  	min-width: 1000px; 일정크기 이하가 되면 전체가 보이지 않음
+  }
+*/
+ 
+ 
+  div {
+  	border: 5px solid blue;
+  	margin: 5px;
+  	padding: 5px;
+  	box-sizing: border-box; /* 크기 산정시 내용과 border, padding을 포함한다. 디폴트 content-box */
+  }
+  
+  div#main {
+  	/* width: 95%; */
+  	width: calc(95% - 1%);
+  	height: 500px;
+  }
+  
+  #d1 {
+  	/* width: 29%; */
+  	width: calc(29% - 3px);
+  }
+  
+  #d2 {
+  	/* width: 68%; */
+  	width: calc(68% - 1%);
+  	overflow: auto; /* scroll; */ /* hidden; */
+  }
+  
+  .dd {
+  	height: 380px;
+  	border: 2px dotted red;
+  	float: left;
+  }
+  
+  img {
+  	width: 95%;
+  	height: 95%;
+  }
+  
+  span {
+  	background: yellow;
+  	font-size: 1.3rem;
+  }
+  
+  sup, sub {
+  	color: red;
+  }
+  
+  h1 {
+  	text-align: center;
+  	letter-spacing: 40px;
+  }
+</style>
+</head>
+<body>
+  <div id="main">
+  	<h1>코알라</h1>
+  	<div class="dd" id="d1"><img alt="Koala.jpg" src="../images/Koala.jpg"></div>
+  	<div class="dd" id="d2">호주 동부에 서식하는 유대하강, 캥거루목에 속하는 동물이다.
+		생김새가 곰처럼 생겼기 때문에[1] 토종곰, 즉 네이티브 베어(Native Bear)라고 부르기도 하며, 과거에는 나무곰(Tree Bear)이나 원숭이곰(Monkey Bear)이라는 명칭도 있었다. 
+		주머니곰, 나무타기주머니곰 등으로도 불린다지만 생활사 등 여러 면에서는 오히려 나무늘보와 가깝다고 볼 수 있다.[2] 굳이 곰을 꼽자면 생활사가 매우 유사한 판다일 것이다. 한마디로 유대류 버전 나무늘보인 셈. 
+		애초에 호주의 유대류 중에는 곰에 상응하는 종이 없다. 유대류의 다양성을 생각해 보면 이상한 일.[3] 생물학적으로 가장 가까운 동물은 웜뱃이라고 한다. 단 웜뱃과는 약 4000만 년 전에 공통조상에서 분리하였다.
+		<span>북실북실</span>하고 <sup>보드라운 털</sup>과 <sub>둥글둥글</sub>한 생김새 때문에 인기가 많아 살아 있는 테디베어라고도 불리며, 실제로 코알라의 외모도 아기곰의 얼굴과 인간 아기나 원숭이의 몸통을 합친 듯한 외관 때문에 귀여운 동물이라는 평이 많다. 
+		유칼립투스 나무에 매달린 코알라 어미와 등에 업힌 새끼의 모습은 호주를 상징하는 모습 중 하나로 호주 홍보에서도 코알라는 캥거루와 함께 필수요소다. 그래서인지 상품화가 아주 잘 된 동물 중 하나이다.
+	</div>
+  </div>
+</body>
+</html>
