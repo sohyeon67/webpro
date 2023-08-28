@@ -1,0 +1,45 @@
+스크립트에서 html요소를 검색하기
+
+id를 이용한 검색
+var a = document.getElementById('id이름')
+var a = document.querySelector('#id이름')
+
+class를 이용한 검색
+var b = document.getElementsByClassName('class이름')
+var b = document.querySelector('.class이름')
+- 리턴 b의 결과는 배열 - b[0], b[1], b[2]
+
+name을 이용한 검색
+var c = document.getElementsName('name이름')
+- 리턴 c의 결과는 배열 - c[0], c[1], c[2]
+
+
+tag이름을 이용한 검색
+var d = document.getElementsByTagName('tag이름')
+var d = document.querySelector('tag이름')
+- 리턴 d의 결과는 배열 - d[0], d[1], d[2]
+
+검색후
+값을 가져오기 - 결과형은 String
+value
+
+예)
+var a = document.getElementById('price')
+var res = a.value;
+
+자바에서
+"1000" + "50" -> 100050
+"1000" * "50" -> 오류
+"1000" - "50" -> 오류
+"1000" / "50" -> 오류
+
+스크립트에서
+"1000" + "50" --> 100050
+1000 + 50 --> 1050
+
+"1000" * "50" --> 실행가능 50000
+"1000" - "50" --> 실행가능 950
+"1000" / "50" --> 실행가능 20
+
+
+

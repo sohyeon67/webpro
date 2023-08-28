@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  label {
+  	vertical-align: top;
+  	display: inline-block;
+  	width: 100px;
+  	height: 30px;
+  }
+  
+  form {
+  	border: 2px solid blue;
+  	margin: 20px auto;
+  	padding: 10px;
+  	width: 50%;
+  }
+  
+  button {
+  	width: 100px;
+  	height: 40px;
+  }
+  
+  textarea, input {
+  	box-sizing: border-box;
+  }
+  
+  textarea {
+  	width: calc(200px - 3%);
+  }
+  
+  input {
+  	width: 100px;
+  }
+  
+  button[type=button] {
+  	margin-left: 50px;
+  }
+</style>
+<script>
+  function sayHello() {
+	  
+	  // html요소 검색
+	  /* a = document.getElementsByName('id');
+	  
+	  // 값 가져오기
+	  vid = a[0].value; */
+	  
+	  vid = document.getElementsByName('id')[0].value;
+	  
+	  alert("hello ~~ " + vid + "님!");
+	  
+  }
+</script>
+</head>
+<body>
+  <form action="button1.jsp" method="post">
+  	<label>아이디</label>
+  	<input type="text" name="id">
+  	<br>
+  	
+  	<label>이름</label>
+  	<input type="text" name="name">
+  	<br>
+  	
+  	<label>자기소개</label>
+	<textarea rows="10" name="area"></textarea>
+	<br>
+	
+	<button type="button" onclick="sayHello()">확인</button>
+	<button>전송</button>
+	<button type="submit">전송</button>
+	<button type="reset">취소</button>
+  </form>
+</body>
+</html>

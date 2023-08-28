@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+  function calc() {
+	// 본문(body)의 입력태그(input)에서 입력한 값을 가져온다
+	/* var a = document.getElementById('price');
+	var b = document.getElementById('qty');
+	
+	var res1 = a.value;
+	var res2 = b.value;
+	
+	var res3 = res1 * res2;
+	
+	alert(res3 + '원입니다'); */
+	
+	a = parseInt(document.getElementById('price').value);
+	b = parseInt(document.getElementById('qty').value);
+	
+	res = a * b;
+	
+	alert(res + '원입니다');
+  }
+</script>
+</head>
+<body>
+  <form>
+  	<label>가격</label>
+  	<!-- <input type="text" name="price"> -->
+  	<input id="price" type="number" step="10" min="10000" max="100000" value="10000" name="price">
+  	<br>
+  	
+  	<label>수량</label>
+  	<!-- <input type="text" name="qty"> -->
+  	<input id="qty" type="number" step="10" min="100" max="5000" value="1000" name="qty">
+  	<br>
+  	
+  	<!-- <input type="button" value="확인" onclick="alert('10000원입니다')"> -->
+  	<input type="button" value="확인" onclick="calc()">
+  	
+  </form>
+</body>
+</html>
