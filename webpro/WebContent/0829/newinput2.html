@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <form action="newinput2.jsp" method="post">
+  	<input type="text" name="addr" value="대전" readonly="readonly">
+  	<br>
+  	
+  	<input type="text" name="pass" value="1234" disabled="disabled">
+  	<br>
+  
+	<input type="text" name="id" pattern="[a-z][a-zA-Z0-9]{3,7}" required="required" placeholder="id입력" size="50">
+  	<br>
+  	
+  	<input type="text" name="name" pattern="[가-힣]{2,5}"  placeholder="name입력">
+  	<br>
+  	
+  	<input type="email" name="email" pattern="[a-z][a-zA-Z0-9]+@[a-zA-Z]+[0-9]*(\.[a-zA-Z]+){1,2}" placeholder="email입력">
+  	<br>
+  	
+  	<input title="010-1234-5678" type="tel" name="tel" pattern="010-[0-9]{4}-[0-9]{4}" placeholder="tel입력">
+  	<br>
+  	
+  	<input type="submit" value="전송">
+  </form>
+</body>
+</html>

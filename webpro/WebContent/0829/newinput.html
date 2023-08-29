@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  form {
+  	border: 2px solid blue;
+  	margin: 20px;
+  	padding: 20px;
+  }
+</style>
+<script>
+  function colorChange() {
+	  // html 요소 검색 접근
+	  let a= document.getElementById('color');
+	  a= document.querySelector('#color');
+	  
+	  let res = a.value;
+	  
+	  console.log(res);
+	  
+	  // form 배경색을 변경
+	  // id를 이용한 form선택
+	  /* 	  var b = document.getElementById('ff');
+	  var b = document.querySelector('#ff');
+	  console.log(b); */
+	  
+	 /*  document.querySelector('form') : b[0]하면 form내부의 첫번째 요소를 선택
+	  document.querySelectorAll('form') : form내부의 모든 요소를 선택 */
+	  
+	  
+	  var b = document.querySelector('form');
+	  var b = document.forms[0];
+	  
+	  // 동적 스타일
+	  b.style.background = res;
+	  
+	  
+	  
+	  
+	  /* 	  var b = document.getElementsByTagName('form');
+	  b[0].style.background = res; */	  
+	  
+
+  }
+</script>
+</head>
+<body>
+  <form id="ff" action="newinput.jsp" method="post">
+  	<input type="text" name="id" placeholder="id입력" size="50">
+  	<br>
+  	
+  	<input type="text" name="name" placeholder="name입력">
+  	<br>
+  	
+  	<input type="email" name="email" placeholder="email입력">
+  	<br>
+  	
+  	<input type="tel" name="tel" placeholder="tel입력">
+  	<br>
+  	
+  	<input type="range" min="0" max="100" value="10" step="10" name="score" placeholder="score입력">
+  	<br>
+  	
+  	<input type="color" name="color" id="color">
+  	<input type="button" value="색변경" onclick="colorChange()">
+  	<input type="submit">
+  </form>
+</body>
+</html>
