@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  div p {
+  	border: 1px solid orange;
+  	padding: 10px;
+  }
+  div p:first-child {
+  	background: pink;
+  }
+  div p:last-child {
+  	border: 5px dotted green;
+  }
+  div p:nth-child(3) {
+  	background-color: orange;
+  }
+  div p:nth-child(4) {
+  	background: rgba(255,0,0,0.2);
+  }
+  div p:nth-child(2n) {
+  	color: red;
+  }
+  div p:hover {
+  	background: lime;
+  	/* background-color, background-image, background-size, 
+  	background-attachment, background-position, background-repeat */
+  }
+  div p:active {
+  	font-size: 1.5rem;
+  }
+</style>
+</head>
+<body>
+<div>
+  <p>무궁화 꽃이 피었습니다</p>
+  <p>사랑은 늘 도망가</p>
+  <p>우리들의 블루스</p>
+  <p>모래 알갱이</p>
+  <p>능소화 꽃이 피었습니다</p>
+  <p>진달래 꽃이 피었습니다</p>
+  <p>개나리 꽃이 피었습니다</p>
+</div>
+</body>
+</html>
