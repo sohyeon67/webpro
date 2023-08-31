@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  div {
+  	width: 50px;
+  	height: 50px;
+  	border: 3px dotted hotpink;
+  	margin: 10px;
+  	padding: 5px;
+  }
+  .dd1 {
+  	background: yellow;
+  }
+  .dd2 {
+  	background: lightblue;
+  }
+  .dd3 {
+  	background: lightgreen;
+  }
+  .dd4 {
+  	background: pink;
+  }
+  #d6 {
+  	position: absolute;	/* 컨테이너 기준으로 */
+  	top: 250px;
+  	left: 300px;
+  }
+  #d11 {
+  	position: relative;	/* 자기가 있던 위치에서 */
+  	top: 100px;
+  	left: 120px;
+  }
+  #d13 {
+  	position: fixed;
+  	top: 300px;
+  	right: 100px;
+  }
+</style>
+</head>
+<body>
+<h1> position : static </h1>
+<div id="d1" class="dd1">d1</div>
+<div id="d2" class="dd2">d2</div>
+<div id="d3" class="dd3">d3</div>
+<div id="d4" class="dd4">d4</div>
+
+<h1> position : absolute </h1>
+<div id="d5" class="dd1">d5</div>
+<div id="d6" class="dd2">d6</div>
+<div id="d7" class="dd3">d7</div>
+<div id="d8" class="dd4">d8</div>
+
+<h1> position : relative </h1>
+<div id="d9" class="dd1">d9</div>
+<div id="d10" class="dd2">d10</div>
+<div id="d11" class="dd3">d11</div>
+<div id="d12" class="dd4">d12</div>
+
+<h1> position : fixed </h1>
+<div id="d13" class="dd1">d13</div>
+<div id="d14" class="dd2">d14</div>
+<div id="d15" class="dd3">d15</div>
+<div id="d16" class="dd4">d16</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  body {
+  	min-width: 1100px;
+  }
+  div {
+  	border: 2px dotted orange;
+  	box-sizing: border-box;
+  	margin: 3px;
+  	padding: 5px;
+  	border-radius: 30px;
+  }
+  #header, #footer {
+  	width: 99%;
+  	height: 100px;
+  }
+  #header {
+  	background: orange;
+  }
+  #footer {
+  	background: skyblue;
+  }
+  #aside1, #aside2 {
+  	background: #aab1d7; /* rgb(245,189,230) */
+  	width: calc(20% - 2px);
+  	height: 500px;
+  }
+  #aside1 {
+  	float: left;
+  }
+  #aside2 {
+  	float: right;
+  }
+  #content {
+  	background: rgb(245,189,230);
+  	width: calc(59% - 3px);
+  	height: 500px;
+  	float: left;
+  }
+  #footer {
+  	clear: both;
+  }
+</style>
+</head>
+<body>
+<div id="header">header</div> 
+<div id="aside1">aside1</div> 
+<div id="content">content</div> 
+<div id="aside2">aside2</div> 
+<div id="footer">footer</div> 
+</body>
+</html>
