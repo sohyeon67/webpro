@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  div {
+  	border: 2px solid blue;
+  	height: 50px;
+  	margin: 30px;
+  	padding: 20px;
+  }
+</style>
+<script>
+  var today = new Date();
+  
+  window.onload = function() {
+	  // id가 result인 요소를 검색
+	  var vres = document.getElementById('result');
+	  
+	  // 출력
+	  vres.innerHTML = today + "<br>";
+	  vres.innerHTML += today.toLocaleString() + "<br>";
+	  vres.innerHTML += today.toLocaleDateString() + "<br>";
+	  vres.innerHTML += today.toLocaleTimeString() + "<br>";
+  }
+  
+</script>
+</head>
+<body>
+<h1>Hello~~</h1>
+<div id="result"></div>
+
+</body>
+</html>

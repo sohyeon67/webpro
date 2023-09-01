@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+  function func() {
+	//alert("hello");
+	
+	// p태그를 검색
+	var vp = document.querySelectorAll('p');
+	
+	for(let i=0; i<vp.length; i++) {
+		vp[i].style.color = "red";
+		vp[i].style.fontSize = "1.5rem";
+		vp[i].style.backgroundColor = "yellow";
+	}
+  }
+</script>
+<body>
+<p>Hello~~</p>
+<p>Hello~~</p>
+<input type="button" value="확인" onclick="func()">
+</body>
+</html>

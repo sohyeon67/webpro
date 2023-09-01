@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+  // p 태그를 검색
+  window.onload = function() {
+	var vp = document.querySelector('p');
+	vp.style.color = "red";
+	vp.style.fontSize = "1.5rem";
+	
+	var vp = document.querySelectorAll('p');
+	for(let i=0; i<vp.length; i++) {
+		vp[i].style.color = "blue";
+	}
+	
+	//document.write("Hello~~1");
+  }
+  
+</script>
+</head>
+<body>
+  <pre>
+  	script가 head태그 안에 있을 때
+  	
+  	html요소를 검색할 수 없다
+  	검색하기 위해서 window.onload = function() { }
+  	함수 내에서 할 수 있다
+  	
+  	document.write()를 이용하여 출력하면
+  	이미 생성된 body의 내용을 실행한 document는 사라진다
+  	
+  </pre>
+  <p>hello~~2</p>
+  <p>안녕하세요</p>
+</body>
+</html>

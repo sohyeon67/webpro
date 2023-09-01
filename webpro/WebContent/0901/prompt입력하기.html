@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+  div {
+  	border: 1px dotted green;
+  	margin: 20px;
+  	padding: 20px;
+  	height: auto;
+  }
+</style>
+
+<script type="text/javascript">
+
+window.onload = function() {
+	
+	// 입력
+	var vinput = window.prompt("이름을 입력하세요", "홍길동");
+	
+	// id=result인 요소 검색
+	var vres = document.getElementById('result');
+	
+	// 출력
+	vres.innerHTML = "이름 : " + vinput+ "<br>";
+	
+}
+
+function addCalc() {
+	// 입력
+	let su1 = parseInt(prompt("입력하세요", "정수로~~"));
+	
+	let su2 = parseInt(prompt("입력하세요", "두번째 정수"));
+	
+	// 계산
+	let vres = su1 + su2;
+	
+	// 출력
+	// id="result2"를 검색
+	//document.getElementById('result2').innerHTML = vres;
+	
+	// 출력내용 만들기
+	//let str = su1 + " + " + su2 + " = " + vres + "<br>";
+	
+	let str = `${su1} + ${su2} = ${vres}<br>`;
+	document.getElementById('result2').innerHTML = str;
+}
+
+function calc() {
+	// id=first id=second 요소 검색, 값을 가져오기
+	var vfirst = parseInt(document.getElementById('first').value);
+	var vsecond = parseInt(document.getElementById('second').value);
+	
+	// 계산
+	var vres = vfirst + vsecond;
+	
+	// 출력 내용 만들기
+	str = `${vfirst} + ${vsecond} = ${vres}`;
+	
+	// 출력 요소 검색, 출력하기
+	document.getElementById('result3').innerHTML = str;
+	document.getElementById('res').value = str;
+	
+}
+
+function opProc() {
+	
+	// 두 개의 수와 연산자 입력
+	var su1 = parseInt(prompt("첫번째 수 입력"));
+	var su2 = parseInt(prompt("두번째 수 입력"));
+	
+	var vop = prompt("연산자 입력(+*-/)");
+	
+	// 비교 - 연산
+	/* if(vop == "+") {
+		res = su1 + su2;
+	} else if(vop == "-") {
+		res = su1 - su2;
+	} else if(vop == "*") {
+		res = su1 * su2;
+	} else if(vop == "/") {
+		res = su1 / su2;
+	} else {
+		res = "연산자 입력 오류입니다";
+	} */
+	
+	switch(vop) {
+	case "+" :
+		res = su1 + su2;
+		break;
+	case "-" :
+		res = su1 - su2;
+		break;
+	case "*" :
+		res = su1 * su2;
+		break;
+	case "/" :
+		res = su1 / su2;
+		break;
+	default:
+		res = "연산자 입력 오류입니다";
+	}
+	
+	
+	// 출력
+	var str = `${su1} ${vop} ${su2} = ${res}`
+	document.getElementById('result4').innerHTML = str;
+	
+}
+</script>
+</head>
+<body>
+
+<p>prompt를 이용하여 입력후 출력</p>
+<div id="result"></div>
+<hr color="red">
+<br>
+
+<p>prompt를 이용하여 수를 입력하고 덧셈하기</p>
+<input type="button" value="확인 " onclick="addCalc()">
+<div id="result2"></div>
+<hr color="red">
+<br>
+
+<p>input text를 이용하여 수를 입력하고 덧셈하기</p>
+첫번째 수 : <input type="text" id="first"><br>
+두번째 수 : <input type="text" id="second"><br>
+<br>
+<input type="button" value="확인" onclick="calc()">
+<br><br>
+결과 : <div id="result3"></div>
+결과 : <input type="text" id="res"><br>
+<hr color="red">
+<br>
+
+
+<p>두개의 수와 연산자를 입력하여 계산하기</p>
+<input type="button" value="확인" onclick="opProc()">
+<br><br>
+<div id="result4"></div>
+
+
+</body>
+</html>

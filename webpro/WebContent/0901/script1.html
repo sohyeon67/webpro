@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <p>hello~~2</p>
+  <p>안녕하세요</p>
+  
+  <script>
+  	
+  	document.write("hello~~1");
+  	
+  	// p태그 검색
+  	var vp = document.getElementsByTagName('p');	// 배열로 리턴
+  	var vp = document.querySelectorAll('p');		// 배열로 리턴
+  	
+  	console.log(vp.length);
+  	for(var i = 0; i<vp.length; i++) {
+  		vp[i].style.color = "red";
+  		vp[i].style.fontSize = "2.0rem";
+  	}
+	console.log(i);
+  	console.log(vp);
+  	
+  	var vp = document.querySelector('p');			// 첫번째 p태그를 리턴
+  	vp.style.color = "red";
+  	vp.style.fontSize = "1.5rem";
+  	
+  </script>
+</body>
+</html>
