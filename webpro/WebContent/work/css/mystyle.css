@@ -1,1 +1,28 @@
 @charset "UTF-8";
+.catalog {
+	border: 2px solid red;
+	list-style-type: none;
+	margin: 5px;
+	padding: 0;
+	height: 470px;
+}
+
+.catalog li {
+	border: 1px solid gray;
+	width: 31%;
+	margin: 3px;
+	padding: 5px;
+	font-size: 0.8rem;
+	float: left;
+	text-align: center;
+}
+
+.catalog img {
+	width: 200px;
+	height: 200px;
+}
+
+/* 음악 */
+.catalog audio {
+	width: 220px;
+}
