@@ -4,7 +4,8 @@
 	list-style-type: none;
 	margin: 5px;
 	padding: 0;
-	height: 470px;
+	/* height: 470px; */
+	height: auto;
 }
 
 .catalog li {
@@ -25,4 +26,11 @@
 /* 음악 */
 .catalog audio {
 	width: 220px;
+}
+
+/* 영화 */
+iframe[name=movie] {
+	width: 100%;
+	height: 250px;
+	text-align: center;
 }
