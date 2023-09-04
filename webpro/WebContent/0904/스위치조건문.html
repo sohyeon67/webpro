@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+  div {
+  	border: 2px dotted orange;
+  	margin: 20px;
+  	padding: 10px;
+  	height: auto;
+  }
+</style>
+<script>
+// function scorePro() { }
+var scorePro = function() {
+	// 입력 - 점수
+	var score = prompt("점수입력하세요", "0~100점사이");
+	
+	// 비교
+	var parseScore = parseInt(score/10);
+	switch(parseScore) {
+	case 10:
+	case 9:
+		res = "수";
+		break;
+	case 8:
+		res = "우";
+		break;
+	case 7:
+		res = "미";
+		break;
+	case 6:
+		res = "양";
+		break;
+	default:
+		res = "가";
+	}
+	
+	// 출력내용
+	let str = `점수 : ${score}<br>`;
+	str += `학점 : ${res}<br>`;
+	
+	// 출력
+	document.querySelector('#result1').innerHTML = str;
+}
+
+var proc2 = function() {
+	// 입력
+	first = prompt("첫번째 사람 입력");
+	second = prompt("두번째 사람 입력");
+	
+	// 비교
+	if(first == second) {
+		res = "비김";
+	} else if(first == "가위" && second == "보" || 
+			first == "바위"  && second == "가위" || 
+			first == "보"  && second == "바위") {
+		res = "첫번째 사람 이김";
+	} else {
+		res = "두번째 사람 이김";
+	}
+	
+	// 출력내용
+	str = `첫번째 사람 : ${first} <br>`;
+	str += `두번째 사람 : ${second} <br>`;
+	str += `${res}<br>`;
+	
+	// 출력
+	document.querySelector('#result2').innerHTML = str;
+}
+</script>
+</head>
+<body>
+<h2>점수(0~100)를 입력받아 학점을 출력</h2>
+<input type="button" value="확인" onclick="scorePro()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>두 사람의 가위, 바위, 보를 입력 받아 결과를 출력</h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

@@ -97,6 +97,8 @@ function opProc() {
 		break;
 	case "/" :
 		res = su1 / su2;
+		//소수 이하 자리수 Number객체의 toFixed()
+		r1= res.toFixed(2);
 		break;
 	default:
 		res = "연산자 입력 오류입니다";
@@ -104,7 +106,10 @@ function opProc() {
 	
 	
 	// 출력
-	var str = `${su1} ${vop} ${su2} = ${res}`
+	var str = `${su1} ${vop} ${su2} = ${res}<br>`;
+	if(vop == "/") {
+		str += `${r1}<br>`;
+	}
 	document.getElementById('result4').innerHTML = str;
 	
 }
