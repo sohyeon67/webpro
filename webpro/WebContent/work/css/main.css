@@ -1,6 +1,9 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 body {
 	min-width: 1300px;
+	font-family: 'Nanum Pen Script', cursive;
+	font-size: 1.5rem;
 }
 
 
@@ -125,7 +128,6 @@ aside {
 #right a {
 	background: #ff6a6a;
 	color: white;
-	font-size: 0.8rem;
 	margin-top: 10px;
 	padding: 5px;
 	border-radius: 5px;
