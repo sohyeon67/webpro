@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+// 객체 정의
+const myCar = {
+		model: "bmw",
+		color: "white",
+		speed: 100,
+		stop() {
+			this.speed = 0;
+		},
+		start() {
+			this.speed = 50;
+		}
+		/* stop: function() {
+			
+		},
+		start: function() {
+			
+		} */
+};
+
+var printObj = () => {
+	
+	str = "";
+	
+	//str += "이름 : " + myCar.name + "<br>";
+	str += `이름 : ${myCar.model} <br>`;
+	str += `스피드 : ${myCar.speed} <br>`;
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+var proc1 = () => {
+	// 객체 정보 출력	
+	printObj();
+}
+
+var proc2 = () => {
+	
+	/* rect = {
+		garo : 2,
+		sero : 5,
+		getArea() {
+			
+		},
+		getCircum() {
+			
+		}
+	} */
+	
+	rect = {};
+	
+	rect.garo = 2;
+	rect.sero = 5;
+	
+	rect.getArea = function() {
+		return this.garo * this.sero;
+	}
+	
+	rect.getCircum = function() {
+		return (this.garo + this.sero) * 2;
+	}
+	
+	// 출력 함수 호출
+	printRect("result2");
+}
+
+// 출력함수 정의
+var printRect = (result) => {
+	str = "";
+	
+	// rect는 전역변수
+	str += `가로 : ${rect.garo} <br>`;
+	str += `세로 : ${rect.sero} <br>`;
+	str += `면적 : ${rect.getArea()} <br>`;
+	str += `둘레 : ${rect.getCircum()} <br>`;
+	
+	document.getElementById(result).innerHTML = str;
+}
+
+var proc3 = () => {
+	// 가로 입력
+	
+	// 세로 입력
+	
+	// 입력한 값을 rect객체의 속성에 대입
+	// rect.garo = 
+		
+	// 출력 함수 호출
+}
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>rect(사각형) 객체 만들기</h2>
+속성 : garo, sero<br>
+메소드 : getArea(), getCircum()<br><br>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+
+<h2>rect(사각형) 객체 만들기</h2>
+속성 : garo, sero를 입력한다<br>
+메소드 : getArea(), getCircum()<br><br>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

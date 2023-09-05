@@ -9,3 +9,18 @@ pre {
 	
 	padding : 20px;
 }
+
+div {
+	border: 2px dotted orange;
+	margin: 20px;
+	padding: 10px;
+}
+
+input[type=button] {
+	width: 80px;
+	height: 40px;
+	background: blue;
+	color: white;
+	border-radius: 20px;
+	font-size: 1.5rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+label {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+}
+</style>
+<script>
+var proc1 = function(op) {
+	
+	// 입력한 값 가져오기
+	xvalue = parseInt(document.querySelector('#x').value);
+	yvalue = parseInt(document.querySelector('#y').value);
+	
+	// 연산자 비교 - 함수 호출 - 결과값 리턴 받는다
+	switch(op) {
+	case "+" :
+		res = add();
+		break;
+	case "-" :
+		res = sub();
+		break;
+	case "*" :
+		res = multi();
+		break;
+	case "/" :
+		res = divide();
+		break;
+	}
+	
+	// 출력
+	document.querySelector('#sum').value = res;
+	
+	document.querySelector('#sp1').innerText = xvalue;
+	document.querySelector('#sp2').innerText = yvalue;
+	document.querySelector('#sp3').innerText = res;
+	
+	
+}
+
+// function add() { }
+// var add = function() {
+var add = () => {
+	return xvalue + yvalue;
+}
+
+//var sub = function() {
+var sub = () => {
+	return xvalue - yvalue;
+}
+
+var multi = function() {
+	return xvalue * yvalue;
+}
+
+var divide = function() {
+	return xvalue / yvalue;
+}
+</script>
+</head>
+<body>
+
+<h2></h2>
+<label>첫번째</label><input id="x"><br>
+<label>두번째</label><input id="y"><br>
+<br>
+<label>결과</label><input id="sum"><br>
+<br>
+<input type="button" value="+" onclick="proc1('+')">
+<input type="button" value="-" onclick="proc1('-')">
+<input type="button" value="*" onclick="proc1('*')">
+<input type="button" value="/" onclick="proc1('/')">
+<br><br>
+<div>첫번째 <span id="sp1"></span></div>
+<div>두번째 <span id="sp2"></span></div>
+<div>결과 <span id="sp3"></span></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

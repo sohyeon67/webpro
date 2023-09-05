@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var proc1 = function() {
+	const arr = ["사과", "바나나", "복숭아", "참외", "수박", "딸기", "포도"];
+
+	//document.querySelector('#result1').innerHTML = arr;
+	str = "";
+	/* for(i=0; i<arr.length; i++) {
+		str += arr[i] + "&nbsp;&nbsp;";
+	} */
+	
+	for(let x in arr) {
+		str += arr[x] + "&nbsp;&nbsp;";
+	}
+	
+	document.querySelector('#result1').innerHTML = str;
+}
+
+var proc2 = function() {
+	const arr = [];
+	arr[0] = "사과";
+	arr[1] = "메론";
+	arr[2] = "복숭아";
+	arr[3] = "파인애플";
+	arr[4] = "딸기";
+	arr[5] = "수박";
+	
+	str = "";
+	
+	for(let x in arr) {
+		str += arr[x] + "&nbsp;&nbsp;";
+	}
+	
+	document.querySelector('#result2').innerHTML = str;
+}
+
+var proc3 = function() {
+	const arr = new Array();
+	arr[0] = "배";
+	arr[1] = "바나나";
+	arr[2] = "복숭아";
+	arr[3] = "수박";
+	arr[4] = "딸기";
+	arr[5] = "망고";
+	
+	str = "";
+	
+	for(let x in arr) {
+		str += arr[x] + "&nbsp;&nbsp;";
+	}
+	
+	document.querySelector('#result3').innerHTML = str;
+}
+</script>
+</head>
+<body>
+<h2>const arr = ["사과", "바나나", "복숭아", "참외", "수박", "딸기", "포도"];</h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>const arr = [];</h2>
+	arr[0] = "사과";<br>
+	arr[1] = "메론";<br>
+	arr[2] = "복숭아";<br>
+	arr[3] = "파인애플";<br>
+	arr[4] = "딸기";<br>
+	arr[5] = "수박";<br>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+
+<h2>const arr = new Array();</h2>
+	arr[0] = "배";<br>
+	arr[1] = "바나나";<br>
+	arr[2] = "복숭아";<br>
+	arr[3] = "수박";<br>
+	arr[4] = "딸기";<br>
+	arr[5] = "망고";<br>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

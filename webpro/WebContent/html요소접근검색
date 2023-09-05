@@ -68,4 +68,29 @@ const - 변수의 값을 변경할 수 없다
 
 
 
+람다 함수 (화살표함수)
+
+function add(x, y) {
+
+}
+
+var add = function(x, y) {
+
+}
+
+var add = () => {
+
+}
+
+var add = (x, y) => {
+
+}
+
+var add = (x) => {
+
+}
+
+var add = x => {
+
+}
 

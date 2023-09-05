@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+var proc1 = () => {
+	
+	str = "";
+
+	while(true) {
+		
+		// 입력
+		su = prompt("수 입력하세요");
+		
+		str += `<h3>** ${su}단 **</h3>`;
+		
+		// 처리 - 출력 모양 만들기
+		for(i=1; i<10; i++) {
+			str += `${su} * ${i} = ${su*i} <br>`;
+		}
+		
+		// 출력
+		document.getElementById('result1').innerHTML = str;
+		
+		// 계속 여부를 묻기 - confirm() - true/false
+		// false인지 비교 해서 - break
+		yesno = confirm("계속하겠습니까?");
+		
+		if(!yesno) break;
+	}
+	
+	// 출력
+	
+}
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
