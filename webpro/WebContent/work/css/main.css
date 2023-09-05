@@ -1,0 +1,134 @@
+@charset "UTF-8";
+body {
+	min-width: 1300px;
+}
+
+header, footer, aside, section, nav, article {
+	border: 2px dotted orange;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+header, footer, nav {
+	width: 100%;
+}
+
+header {
+	background: orange;
+}
+
+nav {
+	background: rgb(128, 235, 199);
+}
+
+nav ul {
+	border: 2px solid red;
+	margin: 5px;
+	padding: 2px;
+	list-style-type: none;
+	background: yellow;
+	text-align: center; /* 리스트들 정렬 */
+}
+
+nav ul li {
+	margin: 20px;
+	padding: 2px;
+	display: inline-block;
+	text-align: center; /* 텍스트 정렬 */
+	text-transform: uppercase;
+}
+
+nav a {
+	letter-spacing: 3px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: blue;
+}
+
+aside, section {
+	height: 550px;
+}
+
+aside {
+	background: #aab1d7; /* rgb(245,189,230) */
+	width: calc(15% - 2px);
+}
+
+#left {
+	float: left;
+}
+
+#left ul {
+	list-style-type: none;
+	margin: 10px;
+	padding: 0;
+}
+
+#left ul li {
+	border: 1px solid black;
+	padding: 10px;
+	margin: 0px auto;
+}
+
+#right {
+	float: right;
+}
+
+#right p {
+	margin: 3px;
+	margin-bottom: 10px;
+}
+
+#right form {
+	margin-bottom: 10px;
+}
+
+#right form * {
+	margin: 3px;
+}
+
+#right form label {
+	display: inline-block;
+	width: 70px;
+}
+
+#right input[type=text], #right input[type=password] {
+	width: 100px;
+}
+
+#right a {
+	font-size: 0.8rem;
+	margin-top: 10px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+section {
+	background: rgb(245, 189, 230);
+	width: calc(70% - 3px);
+	float: left;
+}
+
+article {
+	border-color: green;
+	margin: 5px auto;
+	width: 95%;
+	height: 95%;
+}
+
+footer {
+	background: skyblue;
+	clear: both;
+	text-align: center;
+}
