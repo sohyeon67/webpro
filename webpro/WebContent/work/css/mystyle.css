@@ -2,7 +2,6 @@
 
 /* 목록 공통 */
 .catalog:not([id=movie]) {
-	border: 2px solid red;
 	list-style-type: none;
 	margin: 5px;
 	padding: 0;
@@ -32,17 +31,20 @@
 
 /* 영화 */
 iframe[name=movie] {
+	border: 0;
 	width: 100%;
 	height: 250px;
 	text-align: center;
 }
-ul.catalog#movieList {
-	border: 1px solid blue;
+#movieList {
 	height: 210px;
 }
 #movieList img {
 	width: 150px;
 	height: 190px;
+}
+#movieList li {
+	
 }
 
 /* 회원가입 */
@@ -87,7 +89,14 @@ h2 {
 #shopcart table input {
 	width: 95%;
 	height: 90%;
+	text-align: center;
 }
-#back {
-	
+#shopcart a {
+	text-decoration: none;
+}
+#shopcart a:link, #shopcart a:visited {
+	text-align: left;
+	display: inline-block;
+	margin-top: 20px;
+	color: black;
 }
