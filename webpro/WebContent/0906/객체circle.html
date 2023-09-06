@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+const circle = {
+		rad: 5,
+		getArea : function() {
+			return this.rad * this.rad * Math.PI;
+		},
+		getCircum: function() {
+			return 2 * Math.PI * this.rad;
+		}
+}
+/* const circle = { }
+circle.rad = 5;
+circle.getArea = function() {
+	return this.rad * this.rad * Math.PI;
+}
+circle.getCircum = function() {
+	return 2 * Math.PI * this.rad;
+} */
+
+var proc1 = () => {
+	// 원의 정보를 출력
+	circle.name = "동그라미";
+		
+	str = `반지름 : ${circle.rad} <br>`;
+	str += `이름: ${circle.name} <br>`;
+	str += `면적 : ${circle.getArea().toFixed(2)} <br>`;
+	str += `둘레 : ${circle.getCircum().toFixed(2)} <br>`;
+	
+	document.querySelector('#result1').innerHTML = str;
+}
+</script>
+</head>
+<body>
+
+<h2>circle객체</h2>
+속성  : 반지름 rad<br>
+메소드 : getArea() getCircum()<br>
+소수이하 자리수 : toFixed(자리수)<br>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

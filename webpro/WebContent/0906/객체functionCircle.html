@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function Circle(rad) {
+	
+	this.rad = rad;
+	
+	this.getArea = function() {
+		return this.rad * this.rad * Math.PI;
+	}
+}
+
+Circle.prototype.name = "동글이";		// 모든 Circle객체의 이름이 동글이로 설정
+Circle.prototype.getCircum = function() {		// 모든 Circle객체가 해당 함수를 공통으로 사용가능
+	return 2 * Math.PI * this.rad;
+}
+
+var proc1 = () => {
+	let c1 = new Circle(5);
+	//c1.name = "동글이";		// c1객체에만 name이 부여됨
+	
+	/* c1.getCircum = function() {	// c1객체에만 getCircum 함수가 추가된다
+		return 2 * Math.PI * this.rad;
+	} */
+	
+	printObj(c1, "result1");
+	
+}
+var printObj = (obj, result) => {
+	
+	// 출력내용
+	str = `반지름 : ${obj.rad} <br>`;
+	str += `면적 : ${obj.getArea()} <br>`;
+	str += `둘레 : ${obj.getCircum()} <br>`;
+	str += `이름 : ${obj.name} <br>`;
+	
+	// 출력
+	document.getElementById(result).innerHTML = str;
+	
+}
+var proc2 = () => {
+	let c2 = new Circle(7);
+	printObj(c2, "result2");
+	
+}
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

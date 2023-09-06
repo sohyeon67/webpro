@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+// 전역 변수
+const arr = ["사과", "바나나", "복숭아", "사과", "포도", "수박", "사과", "파인애플"];
+
+var proc1 = (param) => {
+	
+	// 찾는 과일 입력
+	input = prompt("찾는 과일 입력");
+	
+	// 위치 검색
+	if(param == 1)
+		idx = arr.indexOf(input);
+	else if(param == 2)
+		idx = arr.lastIndexOf(input);
+	
+	//alert(idx);
+	
+	// 출력 내용
+	str = `과일 이름 : ${input} <br>`;
+	
+	if(idx > -1 && param == 1)
+		str += `indexOf : ${idx} 번째 있습니다<br>`;
+	else if(idx > -1 && param == 2)
+		str += `lastIndexOf: ${idx} 번째 있습니다<br>`;
+	else
+		str += `배열에 요소에서 찾을 수 없습니다`;
+	
+	document.getElementById('result1').innerHTML = str;
+}
+
+var proc2 = () => {
+	while(true) {
+		// 추가할 요소 입력
+		input = prompt("추가할 과일을 입력");
+		
+		// 배열에 추가
+		arr.push(input);
+		
+		// 계속???
+		cont = confirm("계속??");
+		
+		// break되는 조건 비교
+		if(!cont) break;
+	}
+	
+	// 출력
+	document.querySelector('#result2').innerHTML = arr;
+}
+
+var proc3 = () => {
+	
+	str = `원래 배열 : ${arr} <br>`;
+	popvalue = arr.pop();
+	
+	str += `제거된 요소 : ${popvalue} <br>`;
+	
+	str += `제거 후 배열 : ${arr} <br>`;
+	
+	document.querySelector('#result3').innerHTML = str;
+}
+
+var findProc = () => {
+	
+	input = prompt("과일입력");
+	start = 0;
+	str = "";
+	
+	while(true) {
+		idx = arr.indexOf(input, start);
+		
+		if(idx == -1) break;
+		
+		str += `${idx}번째 `;
+		
+		start = idx + 1;
+	}
+	
+	str += "있습니다";
+	
+	document.getElementById('result4').innerHTML = str;
+
+}
+
+let proc4 = () => {
+	arr2 = arr.slice(1,5);
+	
+	str = `원래배열 : ${arr} <br>`;
+	str += `arr.slice(1,5) 수행 : ${arr2} <br>`;
+	
+	document.querySelector('#result4').innerHTML = str;
+}
+
+let proc5 = () => {
+	idx = 0;
+	str = "";
+	
+	while(true) {
+		
+		// 두 개의 사과 위치가 필요
+		start = arr.indexOf("사과", idx);	
+		// 0번째부터 시작 0번째 위치 찾음 start=0
+		// 3번째부터 시작 3번째 위치 찾음 start=3
+		end = arr.indexOf("사과", start+1);
+		// 1번째 위치부터 찾아서 3번째 위치 end=3
+		// 3번째 위치부터 찾아서 6번째 위치 end=6
+		
+		if(end == -1) break;
+		
+		btwApple = arr.slice(start+1, end);
+		
+		str += btwApple + "<br>";
+		
+		idx = end;
+		
+	}
+		document.getElementById('result5').innerHTML = str;
+	
+	
+}
+
+var proc6 = () => {
+	
+	//arr.splice(2, 1, 100, 200, 300);
+	//arr.splice(3, 2); // index 3에서 2개 삭제
+	arr.splice(3, 0, 500);	// index 3에서 삭제안하고 500넣음
+	
+	document.getElementById('result6').innerHTML = arr;
+}
+
+var proc7 = () => {
+	arr1 = [ 100, 200, 300, 400, 500 ];
+	
+	//conarr = arr.concat(arr1);
+	conarr = arr1.concat(arr);
+	
+	document.getElementById('result7').innerHTML = conarr;
+}
+
+var proc8 = () => {
+	str = arr.join();
+	
+	res = `배열길이 : ${arr.length} <br>`
+	res += `문자열 길이 : ${str.length} <br>`;
+	
+	document.getElementById('result8').innerHTML = res;
+	
+	ss = "";
+	for(i=0; i<arr.length; i++) {
+		ss += `arr[${i}] : ${arr[i]} <br>`;
+	}
+	
+	document.getElementById('result8').innerHTML += ss;
+	
+	ss = "";
+	for(i=0; i<str.length; i++) {
+		ss += `str[${i}] : ${str[i]} <br>`;
+	}
+	document.getElementById('result8').innerHTML += ss;
+
+}
+</script>
+</head>
+<body>
+
+<h2>배열요소의 위치 찾기</h2>
+<input type="button" value="index" onclick="proc1(1)">
+<input type="button" value="lastIndex" onclick="proc1(2)">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>배열요소에서 같은 이름의 과일 위치 모두 찾기</h2>
+<input type="button" value="index" onclick="findProc()">
+<br><br>
+<div id="result"></div>
+<hr color="red">
+<br><br>
+
+<h2>배열요소 추가/삭제</h2>
+<input type="button" value="push" onclick="proc2()">
+<input type="button" value="pop" onclick="proc3()">
+<br><br>
+<div id="result2"></div>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+
+<h2>배열요소자르기</h2>
+slice2 : 사과와 사과 사이의 요소 자르기 <br><br>
+<input type="button" value="slice1" onclick="proc4()">
+<input type="button" value="slice2" onclick="proc5()">
+<br><br>
+<div id="result4"></div>
+<div id="result5"></div>
+<hr color="red">
+<br><br>
+
+<h2>배열 수정하기 - 삭제와 삽입</h2>
+	arr.splice(2, 1, 100, 200, 300);<br>
+	arr.splice(3, 2);<br>
+	arr.splice(3, 0, 500); <br>
+<br>
+<input type="button" value="splice" onclick="proc6()">
+<input type="button" value="concat" onclick="proc7()">
+<br><br>
+<div id="result6"></div>
+<div id="result7"></div>
+<hr color="red">
+<br><br>
+
+<h2>배열을 문자열로 변환</h2>
+
+<input type="button" value="join" onclick="proc8()">
+<br><br>
+<div id="result8"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

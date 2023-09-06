@@ -40,6 +40,18 @@ var proc1 = () => {
 	printObj();
 }
 
+rect = {};
+rect.garo = 2;
+rect.sero = 5;
+
+rect.getArea = function() {
+	return this.garo * this.sero;
+}
+
+rect.getCircum = function() {
+	return (this.garo + this.sero) * 2;
+}
+
 var proc2 = () => {
 	
 	/* rect = {
@@ -52,19 +64,6 @@ var proc2 = () => {
 			
 		}
 	} */
-	
-	rect = {};
-	
-	rect.garo = 2;
-	rect.sero = 5;
-	
-	rect.getArea = function() {
-		return this.garo * this.sero;
-	}
-	
-	rect.getCircum = function() {
-		return (this.garo + this.sero) * 2;
-	}
 	
 	// 출력 함수 호출
 	printRect("result2");
@@ -85,13 +84,17 @@ var printRect = (result) => {
 
 var proc3 = () => {
 	// 가로 입력
+	a = prompt("가로 입력");
 	
 	// 세로 입력
+	b = prompt("세로 입력");
 	
 	// 입력한 값을 rect객체의 속성에 대입
-	// rect.garo = 
+	rect.garo = a;
+	rect.sero = b;
 		
 	// 출력 함수 호출
+	printRect("result3");
 }
 </script>
 </head>
