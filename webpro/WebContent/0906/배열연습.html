@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
 <script>
 var proc1 = () => {
 	
@@ -10,16 +11,40 @@ var proc1 = () => {
 	const arr = [];
 	//arr = new Array();
 	
-	while(ture) {
+	while(true) {
 		// 입력
+		input = prompt("이름 입력");
 		
 		// 입력한 값 비교 - 공백인지 취소버튼(null)인지 - break;
+		if(input == " " || input == null) break;
 		
 		// 배열에 저장 - arr.push(입력 )
-		
+		arr.push(input);
 	}
 	// 배열출력
 	document.getElementById('result1').innerHTML = arr;
+}
+
+var proc2 = () => {
+	
+	const arr = [];
+	
+	let i = 0;
+	
+	while(true) {
+		
+		// 입력
+		input = prompt(`${i+1} 번째 정수 입력`);
+		
+		// 비교 - 저장 ?
+		if(arr.indexOf(input) == -1) arr.push(input);
+		
+		// break 비교 - 배열 개수 5개
+		if(arr.length >= 5) break;
+		i++;
+	}
+	
+	document.querySelector('#result2').innerHTML = arr;
 }
 </script>
 </head>
@@ -31,6 +56,13 @@ var proc1 = () => {
 <input type="button" value="확인" onclick="proc1()">
 <br><br>
 <div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>서로 중복되지 않은 정수 5개를 입력 받아 출력하는 프로그램을 작성하시오</h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
 <hr color="red">
 <br><br>
 </body>

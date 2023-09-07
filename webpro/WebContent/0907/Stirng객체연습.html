@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+var proc1 = () => {
+	
+	// 입력
+	input = prompt("주민등록번호를 입력하세요");
+	
+	// 각 문자열 추출 - substr, slice, substring
+	yy = parseInt(input.substr(0, 2));
+	mm = parseInt(input.slice(2, 4));
+	dd = parseInt(input.slice(4, 6));
+	
+	gend = input.substr(7, 1);	// 1,2,3,4
+	
+	// 비교 - 년도, 성별 결정
+	if(gend == 1 || gend == 3) gender = "남자";
+	else if(gend == 2 || gend == 4) gender = "여자";
+	
+	if(gend == 1 || gend == 2) year = 1900 + yy;
+	else if(gend == 3 || gend == 4) year = 2000 + yy;
+	
+	// 나이계산 = 현재년도 - 
+	today = new Date().toLocaleDateString();
+	todayYear = parseInt(today.substr(0, 4));
+	age = todayYear - year;
+	
+	// 출력
+	str = `주민등록번호 : ${input.substr(0, 8)}****** <br>`;
+	str += `생일 : ${year}년 ${mm}월 ${dd}일 <br>`;
+	str += `성별 : ${gender} <br>`;
+	str += `나이 : ${age}<br>`;
+	
+	document.querySelector('#result1').innerHTML = str;
+	
+}
+
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

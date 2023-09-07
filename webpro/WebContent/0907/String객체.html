@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+var sobj = "사랑은 늘 도망가 우리들의 블루스 다시 만날 수 있을까 모래알갱이"
+var proc1 = () => {
+	//입력 
+	input = prompt("이름을 입력 ");
+		
+	//입력한 길이- 입력문자앞뒤의 공백을 없앤다 - trim()
+	//console.log(input.length);
+	
+	input = input.trim();
+	
+	//console.log(input.length);
+	
+	if(input.length < 1){
+		alert("데이타를 입력하세요");
+		return false;
+	}
+	
+	alert(input + "님이 입장하였습니다");
+}
+
+var proc2 = () =>{
+	
+	//입력 한 값 가져오기  - \r\n
+	text = document.getElementById('area').value;
+	
+	//console.log(text);
+	text = text.replace(/\n/g, "<br>");
+	
+	document.getElementById('result2').innerHTML = text;
+}
+
+var proc3 = () =>{
+	  a= sobj.substr(3, 7);
+	  console.log(a);
+	  console.log('길이 : ' + a.length);
+	  
+	  b = a.trim();
+	  
+	  str = `sobj.substr(3, 7) : ${a} <br>`;
+	  str += `길이 : ${a.length} <br>`;
+	  str += `trim() 후 길이 : ${b.length} <br>`;
+	  
+	  document.getElementById('result3').innerHTML = str;
+}
+var proc4 = () =>{
+	a= sobj.substring(3, 7);
+	
+	str = `sobj.substring(3, 7) : ${a} <br>`;
+	str += `길이 : ${a.length} <br>`;
+	
+	document.getElementById('result4').innerHTML = str;
+}
+var proc5 = () =>{
+	a= sobj.slice(3, 7);
+	
+	str = `sobj.slice(3, 7) : ${a} <br>`;
+	str += `길이 : ${a.length} <br>`;
+	
+	a= a.trim();
+	str += `a.trim() 후 길이 : ${a.length} <br>`;
+	
+	document.getElementById('result5').innerHTML = str;
+}
+
+var proc6 = () =>{
+	
+	arr =  sobj.split(" "); //arr은 배열 
+	
+	str = `${sobj.length} <br>`;
+	str += `${arr.length} <br>`;
+	
+	/* for(i=0; i<arr.length; i++){
+		str += ` arr[${i}] ->  ${arr[i]} <br>`;
+	} */
+	for(let x in arr){
+		str += ` arr[${x}] ->  ${arr[x]} <br>`;
+	}
+	
+	document.getElementById('result6').innerHTML = str;
+}
+</script>
+</head>
+<body>
+
+<h2> trim() 앞뒤 공백 제거 </h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2> replace 문자열 변경 </h2>
+<textarea id="area" rows="10" cols="50"></textarea><br><br>
+
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+
+
+<h2> 문자열 추출:  </h2>
+var sobj = "사랑은 늘 도망가 우리들의 블루스 다시 만날 수 있을까 모래알갱이"<br>
+substr(start, length) <br>
+substring(start, end) : end는 포함되지 않음<br>
+slice(start, end) : end는 포함되지 않음<br><br>
+
+<input type="button" value="substr" onclick="proc3()">
+<input type="button" value="substring" onclick="proc4()">
+<input type="button" value="slice" onclick="proc5()">
+
+<br><br>
+<div id="result3"></div>
+<div id="result4"></div>
+<div id="result5"></div>
+<hr color="red">
+<br><br>
+
+
+<h2> 문자열을 배열로  변경 </h2>
+split("구분자")<br><br>
+<input type="button" value="확인" onclick="proc6()">
+<br><br>
+<div id="result6"></div>
+<hr color="red">
+<br><br>
+
+
+</body>
+</html>

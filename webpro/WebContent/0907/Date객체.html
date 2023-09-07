@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+</head>
+<script>
+today1 = new Date();
+
+var proc1 = () => {
+	
+	today2 = new Date(1000000000);
+	today3 = new Date("2000.1.1");
+	today4 = new Date(2000, 1-1, 1);
+	
+	// 출력내용
+	str = `${today1} <br>`;
+	str += `${today2} <br>`;
+	str += `${today3} <br>`;
+	str += `${today4} <br>`;
+	
+	str += `toLocaleString() : ${today1.toLocaleString()} <br>`;
+	str += `toLocaleDateString() : ${today2.toLocaleDateString()} <br>`;
+	
+	document.querySelector('#result1').innerHTML = str;
+	
+}
+
+var proc2 = () => {
+	
+	day = today1.getDay();
+	console.log(day);
+	
+	switch(day) {
+	case 0:
+		res = "일요일";
+		break;
+	case 1:
+		res = "월요일";
+		break;
+	case 2:
+		res = "화요일";
+		break;
+	case 3:
+		res = "수요일";
+		break;
+	case 4:
+		res = "목요일";
+		break;
+	case 5:
+		res = "금요일";
+		break;
+	case 6:
+		res = "토요일";
+		break;
+	}
+	
+	// 출력 내용
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str += `${res} 입니다<br>`;
+	
+	document.querySelector('#result2').innerHTML = str;
+	
+}
+
+var proc3 = () => {
+	
+	// 배열 선언
+	const arrday = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	
+	day = today1.getDay();
+	
+	res = arrday[day];
+	
+	// 출력 내용
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str += `${res} 입니다<br>`;
+	
+	document.querySelector('#result3').innerHTML = str;
+	
+}
+
+var proc4 = () => {
+	
+	// 태어난 날
+	myday = new Date("2000.6.7");
+	myday = new Date(2000, 6-1, 7);
+	
+	
+	// getTime() 실행
+	todayTime = today1.getTime();
+	mydayTime = myday.getTime();
+	
+	console.log(todayTime, mydayTime);
+	
+	
+	times = todayTime - mydayTime;
+	console.log(times);
+	
+	//res = times/1000/60/60/24;
+	res = times/1000/60/60/24/365;
+	
+	// 출력내용
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str += `생일 : ${myday.toLocaleString()} <br>`;
+	str += `${res} 년동안 살았습니다`;
+	document.querySelector('#result4').innerHTML = str;
+}
+
+var proc5 = () => {
+	
+	// 100일의 millisec
+	mill100 = 100*1000*60*60*24;
+	console.log(mill100);
+	
+	// 오늘의 millisec + 100일의 millisec
+	millis = today1.getTime() + mill100;
+	
+	day100 = new Date(millis);
+	
+	//alert(day100);
+	// 출력 내용
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str += `100일 후 : ${day100.toLocaleString()} <br>`;
+	document.querySelector('#result5').innerHTML = str;
+}
+
+var proc6 = () => {
+	
+	// 선택한 날의 값을 가져온다 - String
+	selday = document.getElementById('pday').value;
+	
+	// 1번의 값으로 Date객체를 생성
+	myday = new Date(selday);
+	
+	// 현재 날짜와 간격을 구한다
+	times = today1.getTime() - myday.getTime();
+	
+	days = times/1000/60/60/24;
+	
+	if(days > 7) res = "7일 경과 / 교환 불가<br>";
+	else res = "교환 가능<br>";
+	
+	// 출력 내용
+	str = `today : ${today1.toLocaleString()} <br>`;
+	str += `구입날짜 : ${myday.toLocaleString()} <br>`;
+	str += res;
+	document.querySelector('#result6').innerHTML = str;
+	
+}
+</script>
+<body>
+
+<h2>Date 객체 생성</h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>Date 객체 생성 : 요일 구하기 - getDay() -> 0 ~ 6으로 리턴</h2>
+<input type="button" value="확인" onclick="proc2()">
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result2"></div>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+
+<h2>Date 객체 : 태어난 날로부터 현재까지 며칠?? - getTime()</h2>
+<input type="button" value="확인" onclick="proc4()">
+<br><br>
+<div id="result4"></div>
+<hr color="red">
+<br><br>
+
+<h2>Date 객체 : 100일 후의 날짜 - getTime()</h2>
+<input type="button" value="확인" onclick="proc5()">
+<br><br>
+<div id="result5"></div>
+<hr color="red">
+<br><br>
+
+<h2>Date 객체 : 교환 가능/불가능 - getTime()</h2>
+<h3>구입날짜</h3>
+<input type="date" id="pday">
+<input type="button" value="확인" onclick="proc6()">
+<br><br>
+<div id="result6"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
