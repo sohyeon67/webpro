@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+rand = parseInt(Math.random() * 100 + 1);	// parseInt 대신 Math.floor 가능
+let count = 0;
+let str = "";
+
+var proc1 = () => {
+	
+	// 입력값 가져오기 => id==su를 검색해서 value 가져오기
+	suvalue = document.getElementById('su').value;
+	
+	str += suvalue + " ";
+	count++;
+	
+	if(suvalue == rand) {
+		hint = "정답입니다~~";
+	} else if(suvalue > rand) {
+		hint = "더 작은 수를 입력하세요";
+	} else {
+		hint = "더 큰 수를 입력하세요";
+	}
+	
+	res = `${hint}<br>
+			입력 횟수 : ${count}<br>
+			입력값들 : ${str}<br>`;
+	// result1에 출력
+	document.getElementById('result1').innerHTML = res;
+	
+}
+
+var proc2 = () => {
+	
+	str = [];
+	
+	for(i=0; ; i++) {
+		lotto = Math.floor(Math.random() * 45 + 1);
+		
+		// 중복 비교
+		idx = str.indexOf(lotto);
+		
+		if(idx == -1) str.push(lotto);
+		
+		if(str.length >= 6) break;
+	}
+	
+	document.getElementById('result2').innerHTML += str + "<br>";
+	
+}
+
+var proc3 = () => {
+	arr = ["가위", "바위", "보"];
+	
+	rd = Math.floor(Math.random()*3);
+	
+	com = arr[rd];
+	
+	user = prompt("입력하세요", "가위바위보");
+	
+	if(user == com) {
+		res = "비김";
+	} else if(user == "가위" && com == "보" || 
+			user == "바위" && com == "가위" || 
+			user == "보" && com == "바위") {
+		res = "user 가 이김";
+	} else {
+		res = "com 이 이김";
+	}
+	
+	// 출력
+	str = `user : ${user} <br>`;
+	str += `com : ${com} <br>`;
+	str += `결과 : ${res} <br>`;
+	
+	document.getElementById('result3').innerHTML = str;
+}
+</script>
+</head>
+<body>
+
+<h2>1~100사이 랜덤을 발생시키고 입력하여 맞추기</h2>
+<input type="text" id="su">
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>1~45 로또번호 발생</h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+
+<h2>가위 바위 보 게임을 할 수 있는 프로그램을 작성</h2>
+(컴퓨터는 랜덤, 사용자는 prompt로 입력 받아서 처리)<br><br>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

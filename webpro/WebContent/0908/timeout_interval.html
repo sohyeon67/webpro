@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+proc1 = () => {
+	
+	setTimeout(change, 1000, "red");
+	
+	/* setTimeout(function() {
+		
+		// id = result1을 검색 - 배경색 바꾸기
+		vres1 = document.getElementById('result1');
+		
+		vres1.style.background = "red";
+	}, 1000); */
+	
+}
+
+change = (color) => {
+	// id = result1을 검색 - 배경색 바꾸기
+	vres1 = document.getElementById('result1');
+	vres1.style.background = color;
+}
+
+proc2 = (start) => {
+	
+	// 확인버튼 클릭하면 확인버튼을 안보이도록 설정
+	start.style.display = "none";
+	
+	// start : 지역변수 - 전역변수로 변경 : gstart
+	gstart = start;
+	
+	// 종료버튼(vstop:전역변수)을 보이도록 설정
+	vstop.style.display = "inline";
+	
+	sid = setInterval(function() {
+		console.log(sid);
+		
+		red = Math.floor(Math.random() * 256);
+		green = Math.floor(Math.random() * 256);
+		blue = Math.floor(Math.random() * 256);
+		
+		// id = result2을 검색 - 배경색 바꾸기
+		vres1 = document.getElementById('result2');
+		
+		vres1.style.background = `rgb(${red}, ${green}, ${blue})`;
+		
+	}, 500);
+}
+
+window.onload = function() {
+	// 종료버튼을 안보이도록 설정
+	vstop = document.getElementById('stop');
+	
+	vstop.style.display = "none";
+	
+}
+
+// 종료버튼 클릭
+stop = but => {
+	// but : 종료버튼 객체변수 - 지역변수
+	
+	// 종료버튼 사라지게 설정
+	but.style.display = "none";
+	
+	// 확인버튼(전역변수로 만들어진 변수) 나오도록 설정
+	gstart.style.display = "inline";
+	
+	// 실행 종료
+	clearInterval(sid);
+	
+}
+</script>
+</head>
+<body>
+
+<h2>setTimeout(fn, millisec)</h2>
+millisec 지정된 시간이 경과하면 fn을 수행하고 끝난다<br><br>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>setInterval(fn, millisec)</h2>
+millisec 지정된 시간이 경과할 때마다 fn을 수행한다<br>
+종료하기 위해서 clearInterval(id이름)<br>
+<input type="button" value="확인" onclick="proc2(this)">
+<input type="button" value="종료" id="stop" onclick="stop(this)">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

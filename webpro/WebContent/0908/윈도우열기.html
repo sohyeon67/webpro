@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+proc1 = () => {
+	
+	window.open("../0907/Date객체.html", "date객체", 
+			"width=500 height=400 top=200 left=300");
+}
+
+proc2 = () => {
+	window.open("subwindow.html", "윈도우 서브", 
+			"width=500 height=400 top=200 left=300");
+}
+</script>
+</head>
+<body>
+
+<h2>새로운 창 열기</h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>새로운 창 열기 - 자식창의 입력 결과를 현재 부모창에 출력</h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
