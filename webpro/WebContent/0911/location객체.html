@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+proc1 = () => {
+	
+	location.href="http://localhost/webpro/0911/test.jsp?id=aa";
+}
+
+proc2 = () => {
+	
+	// 배열 생성
+	arr = ["Hello", "JavaScript", "CSS", "JQUERY", "JSON", "사랑은 늘 도망가"];
+	
+	// 배열의 문자를 선택 - random을 이용
+	rand = Math.floor(Math.random() * arr.length);	// arr[rand]
+	
+	// result2에 출력 - appendChild, innerHTML    - document 변경
+	vres2 = document.querySelector('#result2');
+	vres2.innerHTML = arr[rand];
+	vres2.style.color = "red";
+	vres2.style.fontSize = "2.0rem";
+	
+	// 1초후에 현재 문서로 다시 돌아오기 - reload - 출력 이전의 문서로 다시 돌아오기
+	setTimeout(function() {
+		location.reload();
+	}, 1000);
+}
+
+proc3 = () => {
+	
+	location.replace('img_interval.html');	// 뒤로가기 불가
+}
+</script>
+</head>
+<body>
+
+<h2>location : uri의 정보를 얻거나 설정할 수 있다</h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>reload : 현재 문서를 다시 로드한다</h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+
+<h2>replace : 현재 문서를 다른 문서로 대체한다</h2>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+
+<h2>location.href 사용 - button에서</h2>
+onclick="location.href='test.jsp?id=bb'"<br>
+href="#" onclick="proc1()"<br>
+href에서 스크립트 함수 호출 <br>
+href="javascript:proc1()"<br><br>
+<input type="button" value="확인" onclick="location.href='test.jsp?id=bb'">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+
+<h2>location.href사용 - a태그에서</h2>
+onclick="location.href='test.jsp?id=bb'"<br>
+<a href="#" onclick="location.href='test.jsp?id=bb'">공지사항</a>
+<a href="#" onclick="proc1()">공지사항</a>
+<a href="javascript:proc1()">공지사항</a>
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

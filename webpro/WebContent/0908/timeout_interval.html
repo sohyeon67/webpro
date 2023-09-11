@@ -46,7 +46,9 @@ proc2 = (start) => {
 		// id = result2을 검색 - 배경색 바꾸기
 		vres1 = document.getElementById('result2');
 		
-		vres1.style.background = `rgb(${red}, ${green}, ${blue})`;
+		
+		vres1.style.background = `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+		//vres1.style.background = `rgb(${red}, ${green}, ${blue})`;
 		
 	}, 500);
 }

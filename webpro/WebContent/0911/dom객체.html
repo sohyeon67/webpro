@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+proc1 = () => {
+	// ul요소 검색
+	ultag = document.getElementsByTagName('ul')[0];
+	ultag = document.querySelectorAll('ul')[0];
+	ultag = document.querySelector('ul');
+	ultag = document.querySelector('#result1 ul');
+	
+	console.log(ultag);
+	
+	items = ultag.querySelectorAll('li');
+	
+	str = "";
+	for(i=0; i<items.length; i++) {
+		//console.log(items[i].firstChild);
+		str += items[i].firstChild.data + "<br>";
+	}
+	document.querySelector('#result1 div').innerHTML = str;
+}
+
+proc2 = () => {
+	// 문자열 배열 생성
+	arr = ["Hello", "HTML", "CSS", "JavaScript", "jQuery", "JSON", "사랑은 늘 도망가", "모래알갱이", "우리들의 블루스"];
+	
+	// 랜덤 발생
+	rand = Math.floor(Math.random() * arr.length);
+	
+	// 문자열 선택 - textNode를 생성
+	vtext = document.createTextNode(arr[rand]);
+	
+	// p태그를 생성
+	ptag = document.createElement('p');
+	
+	// p태그에 text객체를 자식으로 추가한다
+	ptag.appendChild(vtext);
+	
+	// 부모를 검색 - result2 검색
+	vres2 = document.getElementById('result2');
+	
+	// 부모에 새로운 p태그를 자식으로 추가한다
+	vres2.appendChild(ptag);
+	
+}
+
+proc3 = () => {
+	
+	// result3 ul요소 검색
+	ultag = document.querySelector('#result3 ul');
+	
+	// li를 검색
+	items = ultag.getElementsByTagName('li');
+	
+	
+	for(i=0; i<items.length; i++) {
+		// li의 개수만큼 반복으로 문자text객체의 값을 얻어온다
+		str = items[i].firstChild.data;
+		
+		// 문자text객체의 값으로 img객체를 생성한다
+		vimg = document.createElement('img');
+		vimg.src = "../images/" + str + ".jpg";
+		vimg.alt = str;
+		
+		// img객체를 현재 li태그에 추가한다
+		items[i].appendChild(vimg);
+	}
+}
+
+proc4 = (item) => {
+	// item : 클릭한 li객체
+	
+	// 문자text객체의 값을 얻어온다
+	str = item.firstChild.data;
+	
+	// img객체를 생성한다
+	vimg = document.createElement('img');
+	vimg.src = "../images/" + str + ".jpg";
+	vimg.alt = str;
+	
+	// img객체를 현재 li태그에 추가한다
+	item.appendChild(vimg);
+}
+</script>
+<style>
+img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+<h2>li의 자식요소인 ListItem text객체 가져오기</h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1">
+  <ul>
+  	<li>List Item1</li>
+  	<li>List Item2</li>
+  	<li>List Item3</li>
+  	<li>List Item4</li>
+  	<li>List Item5</li>
+  </ul>
+  <div></div>
+</div>
+<hr color="red">
+<br><br>
+
+<h2>문자열 생성/p태그 생성</h2>
+p태그에 문자열 추가 <br>
+result2에 p태그를 추가<br>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2">
+</div>
+<hr color="red">
+<br><br>
+
+<h2>li의 자식요소인 text객체 가져오기 - img객체를 생성</h2>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3">
+  <ul>
+  	<li>Penguins</li>
+  	<li>딸기스무디</li>
+  	<li>셔틀콕</li>
+  	<li>수국</li>
+  	<li>코알라</li>
+  </ul>
+  <div></div>
+</div>
+<hr color="red">
+<br><br>
+
+<h2>li의 자식요소인 text객체 가져오기 - img객체를 생성</h2>
+<br><br>
+<div id="result3">
+  <ul>
+  	<li onclick="proc4(this)">Penguins</li>
+  	<li onclick="proc4(this)">딸기스무디</li>
+  	<li onclick="proc4(this)">셔틀콕</li>
+  	<li onclick="proc4(this)">수국</li>
+  	<li onclick="proc4(this)">코알라</li>
+  </ul>
+  <div></div>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>

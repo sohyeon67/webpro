@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+</head>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+
+<script>
+// 시작버튼 클릭하면
+proc1 = (start) => {
+	// start는 확인 버튼 객체 변수
+	
+	// 전역변수로 설정
+	gstart = start;
+	
+	start.style.display = "none";
+	
+	// result1 검색 - 부모로 사용
+	vres1 = document.querySelector('#result1');
+	
+	vid = setInterval(function() {
+		// 첫번째 이미지 선택
+		vimg = document.querySelector('img');
+		
+		// 첫번째 이미지가 사라지면서 뒤로 추가된다
+		vres1.appendChild(vimg);
+	}, 500);
+
+}
+
+
+/* proc1 = (start) => {
+	// start는 확인 버튼 객체 변수
+	
+	// 전역변수로 설정
+	gstart = start;
+	
+	start.style.display = "none";
+	
+	vimg = document.querySelectorAll('img');	// nodeList로 리턴 - 배열
+	vres1 = document.querySelector('#result1');
+	
+	i = 0;
+	
+	vid = setInterval(function() {
+		// img의 첫번째를 선택, result1로 이동
+		vres1.appendChild(vimg[i]);
+		
+		if(i>=5) i = 0;
+		else i++;
+		
+	}, 500);
+	
+} */
+
+// 종료버튼 클릭하면
+stop = () => {
+	clearInterval(vid);
+	
+	// 시작버튼 다시 보이게 설정
+	gstart.style.display = "inline";
+	
+	
+	
+}
+</script>
+<body>
+
+<h2>이미지의 첫번째를 선택하여 뒤로 이동하기</h2>
+<div id="result1">
+  <img alt="Penguins.jpg" src="../images/Penguins.jpg">
+  <img alt="spongebob.png" src="../images/spongebob.png">
+  <img alt="국화.jpg" src="../images/국화.jpg">
+  <img alt="대나무숲.jpg" src="../images/대나무숲.jpg">
+  <img alt="딸기스무디.jpg" src="../images/딸기스무디.jpg">
+  <img alt="무지게1.png" src="../images/무지게1.png">
+</div>
+<br><br>
+<input type="button" value="시작" onclick="proc1(this)">
+<input type="button" value="종료" onclick="stop()">
+<br><br>
+<hr color="red">
+<br><br>
+</body>
+</html>
