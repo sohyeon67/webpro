@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+.but {
+	margin-left: 30px;
+}
+</style>
+<script>
+// 문자배열 생성
+arr = ["Hello", "HTML", "CSS", "JavaScript", "jQuery", "JSON", "AJAX"];
+
+proc1 = () => {
+	
+	// 랜덤발생
+	rand = Math.floor(Math.random() * arr.length);
+	
+	// 문자객체를 생성 - 배열[랜덤]
+	vtext = document.createTextNode(arr[rand]);
+	
+	// p태그 생성
+	ptag = document.createElement('p');
+	
+	// p태그에 문자객체를 추가
+	ptag.appendChild(vtext);
+	
+	// result1을 검색
+	vres1 = document.querySelector('#result1');
+	
+	// result1에 p태그를 추가
+	vres1.appendChild(ptag);
+	
+}
+
+proc2 = () => {
+	// 삭제할 대상을 선택 - p태그가 선택
+	//child = vres1.firstChild;
+	child = vres1.lastChild;
+	
+	// 선택한 p태그를 result1에서 삭제
+	vres1.removeChild(child);
+}
+
+proc3 = () => {
+	// 랜덤발생
+	rand = Math.floor(Math.random() * arr.length);
+	
+	// 문자열 객체 생성 - arr[rand]
+	vtext = document.createTextNode(arr[rand]);
+	
+	// 버튼 객체 생성 - type, onclick, innerHTML
+ 	vbut = document.createElement('button');
+	vbut.type = "button";
+	vbut.className = "but";
+	// vbut.setAttribute('class', 'but');
+	vbut.innerHTML = "삭제"
+	vbut.onclick = function() {
+		// 클릭한 삭제버튼 : this, this객체의 부모(p태그) 객체를 선택
+		vparent = this.parentNode;
+	
+		// p태그를 삭제 - vparent가 p태그
+		vparent.remove();
+		
+	};
+	
+	// input 버튼 - type, value, onclick
+	/* vbut = document.createElement('input');
+	vbut.type = "button";
+	vbut.className = "but";
+	vbut.value = "삭제"
+	vbut.onclick = function() {}; */
+	
+	// p태그 생성
+	ptag = document.createElement('p');
+	
+	// p태그에 문자열 객체 추가
+	ptag.appendChild(vtext);
+	
+	// p태그에 버튼 객체 추가
+	ptag.appendChild(vbut);
+	
+	// result3을 검색
+	vres3 = document.querySelector('#result3');
+	
+	// result3에 p태그를 추가
+	vres3.appendChild(ptag);
+	
+}
+</script>
+</head>
+<body>
+
+<h2>랜덤으로 문자열 객체 발생 - <br>
+p태그 생성 - p태그에 문자열 객체 추가 <br>
+result1에 p태그를 추가<br> 
+삭제 클릭시 p태그를 삭제(위에서부터/아래서부터)</h2>
+
+<input type="button" value="추가" onclick="proc1()">
+<input type="button" value="삭제" onclick="proc2()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>랜덤으로 문자열 객체 발생 - <br>
+삭제버튼 생성<br> 
+<!-- <button type="button" onclick="del(this)">삭제</button>
+	 <input type="button" value="삭제" onclick="del(this)">
+ -->
+p태그 생성 - p태그에 문자열 객체 추가 / p태그에 삭제버튼 추가 <br>
+result3에 p태그를 추가<br> 
+삭제 클릭시 해당 p태그를 삭제</h2>
+
+<input type="button" value="추가" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

@@ -16,7 +16,7 @@ div {
 	padding: 10px;
 }
 
-input[type=button] {
+input[type=button], button[type=button] {
 	height: 40px;
 	background: blue;
 	color: white;

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script>
+proc1 = () => {
+	
+	// p태그 생성
+	ptag = document.createElement('p');
+	
+	// input 생성 - type name class
+	vin = document.createElement('input');
+	vin.type = "file";
+	vin.name = "file";
+	vin.className = "file";
+	
+	// button 생성 - type innerHTML
+	vbut = document.createElement('button');
+	vbut.type="button";
+	vbut.innerHTML = "삭제";
+	vbut.onclick = function() {
+		// 클릭한 삭제버튼 : this, this객체의 부모(p태그) 객체를 선택
+		vparent = this.parentNode;
+	
+		// p태그를 삭제 - vparent가 p태그
+		vparent.remove();
+	};
+	// vbut.onclick = del(this); 쓸 수 없음. 매개변수를 넘겨줘야되는데 호출이라서
+	
+	// p태그에 input추가
+	ptag.appendChild(vin);
+	
+	// p태그에 button추가
+	ptag.appendChild(vbut);
+	
+	// result1 검색
+	vres1 = document.querySelector('#result1');
+	
+	// result1에 p태그 추가
+	vres1.appendChild(ptag);
+}
+
+del = (but) => {
+	vparent = but.parentNode;
+	
+	vparent.remove();
+}
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="추가" onclick="proc1()">
+<br><br>
+<div id="result1">
+  <p>
+  	<input type="file" name="file" class="file">
+	<button type="button" onclick="del(this)">삭제</button>
+  </p>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>

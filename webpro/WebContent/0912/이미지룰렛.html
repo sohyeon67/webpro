@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+img {
+	width: 100px;
+	height: 100px;
+	margin: 3px;
+}
+</style>
+<script>
+vimgs = null;
+i = 0;
+
+// 시작버튼 클릭
+proc1 = (start) => {	// 지역변수, 매개변수 start
+	
+	// 테두리를 없앤다 - 최초 시작 버튼 클릭시에는 수행되지 않는다
+	if(vimgs != null) {
+		vimgs[rand].style.border = "none";
+		i++;
+		
+		if(i>=3) {
+			alert("기회를 다 소진했습니다");
+			return ;
+		}
+	}
+	
+	// 시작버튼 안보이도록 설정	
+	start.style.display = "none";
+	
+	// 전역변수로 변경 - proc2() 함수에서 사용하기 위해서
+	gstart = start;
+	
+	// result1검색 - img의 부모
+	vres1 = document.querySelector('#result1');
+	
+	vid = setInterval(() => {
+		// 첫번째 이미지를 선택
+		vimg = document.querySelector('img');
+		
+		// 부모안에서 맨 뒤로 이동
+		vres1.appendChild(vimg);
+		
+	}, 500);
+}
+
+proc2 = () => {
+	
+	clearInterval(vid);
+	
+	// 시작버튼 다시 보이도록 설정
+	gstart.style.display = "inline";
+	
+	// 랜덤
+	vimgs = document.querySelectorAll('#result1 img');
+	rand = Math.floor(Math.random() * vimgs.length);
+	
+	vimgs[rand].style.border = "5px double red";
+}
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="시작" onclick="proc1(this)">
+<input type="button" value="종료" onclick="proc2()">
+<br><br>
+<div id="result1">
+  <img src="../images/Tulips.jpg" alt="Tulips.jpg">
+  <img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg">
+  <img src="../images/shopping.jpg" alt="shopping.jpg">
+  <img src="../images/Penguins.jpg" alt="Penguins.jpg">
+  <img src="../images/뱅쇼.jpg" alt="뱅쇼.jpg">
+  <img src="../images/coffee1.jpg" alt="coffee1.jpg">
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>
