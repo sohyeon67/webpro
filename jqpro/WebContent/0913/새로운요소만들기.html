@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+proc1 = () => {
+	/*
+	// hello문자 객체 만들기
+	vtext = document.createTextNode('Hello');
+	
+	// p태그 만들기
+	ptag = document.createElement('p');
+	ptag.name="aaa";
+	ptag.innerHTML="Hello";
+	ptag.setAttribute('class', 'aaa');
+	ptag.onclick=function() {
+		alert('hello');
+	}
+	
+	// p태그에 문자객체를 추가하기
+	ptag.appendChild(vtext);
+	
+	// result1 검색 - p태그 추가
+	document.querySelector('#result1').appendChild(ptag);
+	*/
+	
+	
+	ptag = $("<p class='aaa' name='aaa' onclick='pp()'>Hello</p>");
+	
+	//$('#result1').append(ptag);
+	ptag.appendTo($('#result1'));
+}
+
+pp = () => {
+	alert("hello");
+}
+
+proc2 = () => {
+	// p태그 생성 '<p></p>' ==> '<p/>'
+	$('<p></p>', {
+		'class' : 'aaa',
+		'name' : 'aaa',
+		'text' : 'Hello',
+		'click' : function() {
+			alert("hello");
+		}
+	}).appendTo($('#result2'));
+	
+}
+
+proc3 = () => {
+	// 이미지 생성
+	
+	//vimg = $('<img src="../images/spongebob.png" alt="spongebob.png" onclick="imgClick(this)">');
+	
+	/* vimg = $('<img>', {
+		'src' : '../images/spongebob.png',
+		'alt' : 'spongebob.png',
+		'click' : function() { // imgClick호출 x
+			$(this).css('border', '3px solid red');
+		}
+	}); */
+	
+	vimg = $('<img>', {
+		'src' : '../images/spongebob.png',
+		'alt' : 'spongebob.png',
+		'click' : imgProc
+	});
+	
+	$('#result3').append(vimg);
+	
+}
+
+imgProc = function() {
+	$(this).css('border', '2px solid red');
+}
+
+imgClick = (param) => {
+	
+	//param.style.border = "2px solid red";
+	$(param).css('border', '2px solid red');
+}
+</script>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+
+<h2>id=result1인 요소에 Hello문자를 갖는 p태그를 생성한다</h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>id=result2인 요소에 Hello문자를 갖는 p태그를 생성한다</h2>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+
+<h2>id=result3인 요소에 img객체를 생성한다</h2>
+<input type="button" value="이미지생성" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+<hr color="red">
+<br><br>
+
+
+</body>
+</html>

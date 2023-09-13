@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+/* window.onload = function() {
+	$('#btn1').on('click', function() {
+		
+	})
+}
+
+$(document).ready(function() {
+$('#btn1').on('click', function() {
+		
+	})
+}) */
+
+$(function() {
+	// 확인버튼 클릭했을 때
+	$('#btn1').on('click', function() {
+		// 모든 p태그를 선택
+		$('p').css('background', 'yellow');
+		
+		// 0번째 form내부의 p태그를 선택
+		$('p', document.forms[0]).css('background', 'red');
+	})
+	
+	// div클릭했을 때
+	$('div.result1').on('click', function() {
+		$('p', this).css('font-size', '+=5px');
+	})
+	
+	// p태그 클릭
+	$('p').on('click', function() {
+		//this.style.fontSize = '+=5px'; 안됨
+		$(this).css('font-size', '+=5px');
+	})
+	
+})
+</script>
+<style>
+form {
+	border: 3px solid gold;
+	margin: 20px;
+	padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" id="btn1">
+<p>무궁화 꽃이 피었습니다</p>
+<br><br>
+<div class="result1">
+	<p>무궁화 꽃이 피었습니다</p>
+</div>
+<div class="result1">
+	<p>무궁화 꽃이 피었습니다</p>
+</div>
+<div class="result1">
+	<p>무궁화 꽃이 피었습니다</p>
+</div>
+<div class="result1">
+	<p>무궁화 꽃이 피었습니다</p>
+</div>
+
+
+<form>
+	<p>무궁화 꽃이 피었습니다</p>
+</form>
+
+<form>
+	<p>무궁화 꽃이 피었습니다</p>
+</form>
+
+<form>
+	<p>무궁화 꽃이 피었습니다</p>
+</form>
+<hr color="red">
+<br><br>
+</body>
+</html>

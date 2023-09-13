@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(() => {
+	$('#btn1').on('click', () => {
+		
+		// p태그를 검색 - script방식
+		/* plist = document.getElementsByTagName('p');
+		plist = document.querySelectorAll('#result1 p');
+		
+		for(i=0; i<plist.length; i++) {
+			plist[i].style.background = 'lime';
+		} */
+		
+		// jquery방식
+		plist = $('#result1 p');
+		plist.css('background', 'yellow');
+		
+		plist.eq(2).css('background', 'red');
+		
+	}) // btn1 click end
+	
+	
+	$('#btn2').on('click', () => {
+		plist = document.querySelectorAll('#result2 p');	// dom 객체변수
+		//plist.css('background', 'yellow');	//오류
+		//plist.style.background = 'yellow';	// 오류
+		
+		// dom객체를 jquery 객체로 변환 - 함수 호출
+		jqlist = $(plist);
+		jqlist.css('background', 'pink');
+		jqlist.eq(3).css('background', 'red');
+
+		// jquery객체를 dom객체로 변환 - [2], get(2)
+		//jqlist[2].css('font-size', '2.0em');	// 오류
+		jqlist.get(2).style.fontSize = '2.0em';
+		jqlist[5].style.color = 'blue';
+	})
+	
+}) // document.read end
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" id="btn1">
+<br><br>
+<div id="result1">
+  <p>무궁화 꽃이 피었습니다1</p>
+  <p>무궁화 꽃이 피었습니다2</p>
+  <p>무궁화 꽃이 피었습니다3</p>
+  <p>무궁화 꽃이 피었습니다4</p>
+  <p>무궁화 꽃이 피었습니다5</p>
+  <p>무궁화 꽃이 피었습니다6</p>
+  <p>무궁화 꽃이 피었습니다7</p>
+</div>
+<hr color="red">
+<br><br>
+
+<h2>dom 객체변수를 jquery객체변수로 상호 변환 - $(dom변수)<br>
+jquery객체변수를 dom 객체변수로 변환 - .get(2), [2] <br>
+</h2>
+<input type="button" value="확인" id="btn2">
+<br><br>
+<div id="result2">
+  <p>무궁화 꽃이 피었습니다1</p>
+  <p>무궁화 꽃이 피었습니다2</p>
+  <p>무궁화 꽃이 피었습니다3</p>
+  <p>무궁화 꽃이 피었습니다4</p>
+  <p>무궁화 꽃이 피었습니다5</p>
+  <p>무궁화 꽃이 피었습니다6</p>
+  <p>무궁화 꽃이 피었습니다7</p>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>

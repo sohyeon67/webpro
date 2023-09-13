@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+proc1 = (hlist) => {
+	// hlist : 클릭한 h2객체를 변수로 넘겨받은 매개변수. 지역변수, dom변수
+	
+	//hlist.style.display = "none";
+	//---------------------------------------------
+
+	// dom변수를 jquery변수로 변환 - $(dom변수)
+	//$(hlist).css('display', 'none');
+	$(hlist).hide();
+}
+
+$(document).ready(function() {
+	// script방식의 일괄이벤트 등록 처리
+	hlist = document.querySelectorAll('#result2 h2');
+	for(i=0; i<hlist.length; i++) {
+		hlist[i].addEventListener('click', proc2)
+	}
+	//---------------------------------------------------
+	
+	// jquery방식의 이벤트 등록
+	// #result3 h2검색
+	$('#result3 h2').on('click', function() {
+		$(this).hide();
+		//$(this).css('display', 'none');
+		//this.style.display = "none";
+	})
+	
+	
+	
+	
+})
+
+function proc2() {
+	this.style.display = "none";
+}
+</script>
+</head>
+<body>
+
+<h2>script방식의 onclick="proc1(this)"</h2>
+<br><br>
+<div id="result1">
+  <h2 onclick="proc1(this)">클릭하면 사라집니다1</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다2</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다3</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다4</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다5</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다6</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다7</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다8</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다9</h2>
+  <h2 onclick="proc1(this)">클릭하면 사라집니다10</h2>
+</div>
+<hr color="red">
+<br><br>
+
+<h2>script방식의 이벤트 처리</h2>
+<br><br>
+<div id="result2">
+  <h2>클릭하면 사라집니다1</h2>
+  <h2>클릭하면 사라집니다2</h2>
+  <h2>클릭하면 사라집니다3</h2>
+  <h2>클릭하면 사라집니다4</h2>
+  <h2>클릭하면 사라집니다5</h2>
+  <h2>클릭하면 사라집니다6</h2>
+  <h2>클릭하면 사라집니다7</h2>
+  <h2>클릭하면 사라집니다8</h2>
+  <h2>클릭하면 사라집니다9</h2>
+  <h2>클릭하면 사라집니다10</h2>
+</div>
+<hr color="red">
+<br><br>
+
+<h2>jquery방식의 일괄이벤트 처리</h2>
+<br><br>
+<div id="result3">
+  <h2>클릭하면 사라집니다1</h2>
+  <h2>클릭하면 사라집니다2</h2>
+  <h2>클릭하면 사라집니다3</h2>
+  <h2>클릭하면 사라집니다4</h2>
+  <h2>클릭하면 사라집니다5</h2>
+  <h2>클릭하면 사라집니다6</h2>
+  <h2>클릭하면 사라집니다7</h2>
+  <h2>클릭하면 사라집니다8</h2>
+  <h2>클릭하면 사라집니다9</h2>
+  <h2>클릭하면 사라집니다10</h2>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>
