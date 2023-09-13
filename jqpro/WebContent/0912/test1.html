@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+proc1 = () => {
+	// javascript코드
+	/* vres1 = document.getElementById('result1'); // vres1은 dom변수다
+	vres1.style.background = 'red'; */
+	
+	// jquery코드
+	vres1 = $('#result1');	// vres1은 jquery변수
+	vres1.css('background', 'yellow');
+}
+
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

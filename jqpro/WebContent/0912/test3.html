@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+proc1 = () => {
+	$('#result1').css('background', 'red')
+}
+
+/* window.onload = function() {
+	$('#btn2').on('click', function() {
+		
+	})
+} */
+
+////////////////////////////////////////////
+
+/* 
+$(document).ready(function() {
+	$('#btn2').on('click', function() {
+		
+	})
+}) */
+
+$(document).ready(() => {
+	$('#btn2').on('click', () => {
+		/* vres2 = document.querySelector('#result2');
+		vres2.style.background = "blue"; */
+		
+		vres2 = $('#result2');
+		vres2.css('background', "blue");
+		
+		$('#result2').css('background', 'green')
+					.css('border', '5px solid red');
+		
+	})
+})
+
+
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>jquery방식의 onlick 이벤트</h2>
+<input type="button" value="확인" id="btn2">
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
