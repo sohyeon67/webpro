@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(() => {
+	$('#btn1').on('click', ()=>{
+		$('#p2 + p').css('background', 'green');
+	})
+	
+	$('#btn2').on('click', ()=>{
+		$('#p2 ~ p').css('color', 'red');
+	})
+})
+
+
+</script>
+</head>
+<body>
+
+<h2>형제 선택<br>
++ : 바로 다음에 나오는 첫번째 형제<br>
+~ : 다음에 나오는 모든 형제<br>
+</h2>
+<input type="button" value="확인+" id="btn1">
+<input type="button" value="확인~" id="btn2">
+<br><br>
+<div id="result1">
+  <p id="p1">첫번째</p>
+  <p id="p2">두번째</p>
+  <p id="p3">세번째</p>
+  <p id="p4">네번째</p>
+  <div>
+  	<p>네번째2</p>
+  </div>
+  <p id="p5">다섯번째</p>
+  <p id="p6">여섯번째</p>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>
