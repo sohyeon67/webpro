@@ -10,7 +10,34 @@ proc1 = () => {
 	//alert($('body').html());
 	alert($('body').text()); // 문자만
 }
+$(document).ready(() => {
+	$('#btext').on('click', () => {
+		// #result2 모든 p를 대상으로 모든 문자를 가져온다
+		alert($('#result2 p').text());	// 다 가져옴
+	})
+	
+	$('#bhtml').on('click', () => {
+		// #result2 첫번째 p를 대상으로 태그 포함한 문자를 가져온다
+		alert($('#result2 p').html());	// 첫번째 것만 가져옴
+	})
+	
+	$('#bhfor').on('click', function() {
+
+		str = "";
+		$('#result3 p').each(function() {	// 람다 함수쓰면 this가 함수 자체가 됨..
+			str += $(this).html() + "\n";	// this : p태그의 1번째 2번째...
+		})
+		
+		alert(str);
+	})
+})
 </script>
+<style>
+p {
+	font-size : 1.5rem;
+	color : blue;
+}
+</style>
 </head>
 <body>
 
@@ -18,6 +45,29 @@ proc1 = () => {
 <input type="button" value="확인" onclick="proc1()">
 <br><br>
 <div id="result1"></div>
+<hr color="red">
+<br><br>
+
+<h2>html메소드</h2>
+<input type="button" value="html" id="bhtml">
+<input type="button" value="text" id="btext">
+<br><br>
+<div id="result2">
+  <p>hello<span>HTML</span></p>
+  <p>안녕~<span>CSS</span></p>
+  <p>hi~~<span>JQUERY</span></p>
+</div>
+<hr color="red">
+<br><br>
+
+<h2>html메소드</h2>
+<input type="button" value="html반복" id="bhfor">
+<br><br>
+<div id="result3">
+  <p>hello<span>HTML</span></p>
+  <p>안녕~<span>CSS</span></p>
+  <p>hi~~<span>JQUERY</span></p>
+</div>
 <hr color="red">
 <br><br>
 </body>
