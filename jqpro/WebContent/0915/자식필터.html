@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(function() {
+	$('#btn1').on('click', function() {
+		//$('#result1 tr:first').css('background', 'skyblue');	// 첫번재 테이블의 첫줄만 바뀜(tr 전체에서 첫번째)
+		//$('#result1 tr:even').css('background', 'orange');	// 0 2 4 6
+		
+		$('#result1 tr:nth-child(odd)').css('background', 'orange');
+		$('#result1 tr:first-child').css('background', 'skyblue');	// child가 붙으면 부모를 기준으로 첫번재 tr선택
+		$('#result1 tr:nth-child(even)').css('background', 'lightgray');
+		
+	})
+	
+	
+	$('#btn2').on('click', function() {
+		$('#result2 td:first-child').css('background', 'gray');
+		$('#result2 td:nth-child(2)').css('background', 'lightgray');
+		
+		$('#result2 tr:first-child').css('background', 'skyblue');
+	})
+	
+})
+</script>
+<style>
+table {
+	border: 1px solid blue;
+	margin: 10px;
+}
+
+td {
+	width: 300px;
+	height: 30px;
+	text-align: center;
+	padding: 10px;
+}
+
+th {
+	height: 50px;
+	font-size: 3.0rem;
+}
+</style>
+</head>
+<body>
+
+<h2>
+tr:first-child<br>
+tr:nth-child(odd)<br>
+tr:nth-child(even)<br>
+</h2>
+<input type="button" value="확인" id="btn1">
+<br><br>
+<div id="result1">
+	<table border="1">
+		<tr>
+			<th>제목1</th>
+			<th>제목2</th>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+	
+	<table border="1">
+		<tr>
+			<th>제목1</th>
+			<th>제목2</th>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+	
+	
+</div>
+<hr color="red">
+<br><br>
+
+
+
+<h2>
+$('#result2 td:first-child').css('background', 'gray');<br>
+$('#result2 td:nth-child(2)').css('background', 'lightgray');<br>
+$('#result2 tr:first-child').css('background', 'skyblue');<br>
+</h2>
+<input type="button" value="확인" id="btn2">
+<br><br>
+<div id="result2">
+	<table border="1">
+		<tr>
+			<th>제목1</th>
+			<th>제목2</th>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+	
+	<table border="1">
+		<tr>
+			<th>제목1</th>
+			<th>제목2</th>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+	
+	
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>

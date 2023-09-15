@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(function() {
+	$('#btn1').on('click', function() {
+		// 사용가능한 요소를 선택해서 배경색 변경
+		$('form *:enabled').css('background', 'gold');
+		
+		// 사용불가능한 요소를 선택해서 테두리 설정
+		$('form *:disabled').css('border', '5px double red');
+		
+		$('select option').css('color', 'red');
+	})
+	
+	$('#btn2').on('click', function() {
+		//$('#result2 > form > input:checked')
+		//$('#result2 input:checked')
+		//$('#reuslt2 input[type=checkbox]:checked')
+		//$('#reuslt2 input:checkbox:checked')
+		
+		str = "";
+		str2 = [];
+		
+		$('#result2 :checkbox:checked').each(function (x, y) {	// x는 인덱스, y는 [object HTMLInputElement]
+			str += $(this).val() + "&nbsp;&nbsp;&nbsp;";	// 그냥 this는 dom객체
+			str2.push($(this).val());
+		})
+		
+		// 브라우저에 출력하기
+		$('#result2 div').html(str);
+	})
+	
+	/* vbtn3 = document.querySelector('#btn3');
+	vbtn.addEventListener('click', function() {
+		
+	}) */
+	
+	str = "";
+	$('#btn3').on('click', function(){
+		$('#spring option:selected').each(function() {
+			str += $(this).val() + "<br>";
+		})
+		
+		$('#result3 div').html(str);
+	})
+	
+})
+</script>
+</head>
+<body>
+
+<h2>
+폼상태필터<br>
+:disabled -> 사용 불가능, 서버로 전송불가능<br>
+:enabled  -> 사용가능 기본값, 속성에 설정 안됨<br>
+:selected -> select/option의 초기값 설정<br>
+:checked
+</h2>
+<input type="button" value="확인" id="btn1">
+<br><br>
+<div id="result1">
+	<form action="폼상태.jsp" method="post"> 
+		<input type="text" name="id" value="korea" disabled="disabled"><br>
+		<input type="password" name="pass"><br>
+		<input type="hidden" name="age" value="20">
+		<br>
+		
+		<select name="disSelect">
+		      <option>Option1</option>
+		      <option>Option2</option>
+		      <option selected>Option3</option>
+		      <option>Option4</option>
+		</select>
+		<br>
+		<br>
+		
+		<textarea name="area" rows=10 cols=20 >text</textarea><br>
+		<input type="button" value="클릭"  onclick="alert('hello!!')"> <br>
+		
+		<br>
+		<input type="submit" value="전송">
+	</form>
+</div>
+<hr color="red">
+<br><br>
+
+
+
+<h2></h2>
+<input type="button" value="확인" id="btn2">
+<br><br>
+<div id="result2">
+	<form id="ff">
+		취 미 :
+		<input type="checkbox" name="hobby" value="여행" checked>여행
+		<input type="checkbox" name="hobby" value="장기">장기
+		<input type="checkbox" name="hobby" value="바둑">바둑
+		<input type="checkbox" name="hobby" value="독서">독서
+		<input type="checkbox" name="hobby" value="공부">공부
+		<input type="checkbox" name="hobby" value="게임">게임
+		<input type="checkbox" name="hobby" value="노래하기">노래하기
+		<input type="checkbox" name="hobby" value="춤추기">춤추기
+		<input type="checkbox" name="hobby" value="말하기">말하기
+		<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+	</form>
+	
+	<div></div>
+</div>
+<hr color="red">
+<br><br>
+
+<h2></h2>
+<input type="button" value="확인" id="btn3">
+<br><br>
+<div id="result3">
+	<form>
+		봄소식 : <br><br>
+		<select name="spring" id="spring" multiple size="6">
+			<option>개나리</option>
+			<option selected>진달래</option>
+			<option>민들레</option>
+			<option selected>벚꽃</option>
+			<option>목련</option>
+			<option>철쭉</option>
+		</select>
+	</form>
+	<div></div>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>

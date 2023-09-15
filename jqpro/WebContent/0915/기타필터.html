@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(() => {
+	
+	$('#btn1').on('click', () => {
+		
+		vhid = "** hidden결과 **<br>";
+		
+		$('#testForm *:hidden').each(function() {
+			//alert(this.tagName);
+			if(this.tagName == "INPUT") {
+				vattr = $(this).attr('name');
+				vvalue = $(this).val();
+				
+				vhid += `${this.tagName} -> [${vattr} : ${vvalue}]<br>`;
+				
+			} else {
+				vtext = $(this).text();
+				vhid += `${this.tagName} -> [${vtext}]<br>`;
+			}
+		}) // each
+		
+		$('#hidden').html(vhid);
+		
+	}) // click
+	
+	
+	$('#btn2').on('click', () => {
+		
+		visi = "** visible결과 **<br>";
+		
+		$('#testForm *:visible').each(function() {
+			if(this.tagName == "INPUT") {
+				
+				vtype = $(this).attr('type');
+				if(vtype == "radio") {
+					// checked되어있는지의 상태 값을 가져온다. prop() - true, false로 판단
+					// checked되어있디면
+					if($(this).prop('checked')) { // check되어 있는 상태
+						vattr = $(this).attr('name');
+						vvalue = $(this).val();
+						
+					} 
+					
+				} else { // type="radio" 외의 것
+					vattr = $(this).attr('name');
+					vvalue = $(this).val();
+				}
+				
+				visi += `${this.tagName} -> [${vattr} : ${vvalue}]<br>`;
+				
+			} else if(this.tagName != "BR") {
+				vtext = $(this).html();
+				visi += `${this.tagName} -> [${vtext}]<br>`;
+			}
+		}) // each
+		
+		$('#visible').html(visi);
+		
+	}) // click
+	
+})
+
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="hidden" id="btn1">
+<input type="button" value="visible" id="btn2">
+<br><br>
+<div id="result1">
+	<form id="testForm"> 
+		<input type="hidden" name="userAge" value="33">
+		<input type="hidden" name="userCity" value="대전">
+		
+		I D : <input type="text" name="userID" value="hong">  
+		<span style="display:none">ID가 중복됩니다.</span><br> <!-- :hidden -->
+		
+		이름 : <input type="text" name="userName" value="홍길동">   
+		<span style="visibility:hidden">이름을 입력하세요</span><br> <!-- :visible -->
+		
+		<p style="visibility:hidden"><b>안보이지만</b> <em>영역이 있는 속성</em></p>
+		
+		성별 : <input type="radio" name="sung" value="남" checked>남자  
+		<input type="radio" name="sung" value="여">여자  
+	</form>
+</div>
+
+<div id="hidden"></div>
+<div id="visible"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
