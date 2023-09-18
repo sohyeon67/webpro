@@ -34,7 +34,7 @@ $(() => {
 	$('#btn2').on('click', () => {
 		
 		visi = "** visible결과 **<br>";
-		
+	/* 	결과 이상하게 나옴
 		$('#testForm *:visible').each(function() {
 			if(this.tagName == "INPUT") {
 				
@@ -60,7 +60,29 @@ $(() => {
 				visi += `${this.tagName} -> [${vtext}]<br>`;
 			}
 		}) // each
-		
+		 */
+		 
+		 $('#testForm *:visible').each(function(i, v) {
+			 // v = #testForm *:visible[i]
+			 
+			 vtype = $(this).attr('type');
+			 
+			 if(v.tagName == 'INPUT' && vtype == 'radio' && $(this).prop('checked')
+					 || v.tagName == 'INPUT' && vtype == 'text') {
+				 vattr = $(this).attr('name');
+				 vvalue = $(this).val();
+				 
+				 visi += `${this.tagName} -> [${vattr} : ${vvalue}]<br>`;
+			 } else if(v.tagName != 'BR' && vtype != 'radio' && vtype != 'text') {
+				 // span, p, div, a, b, em
+				 vtext = $(this).html();
+				 visi += `${this.tagName} -> [${vtext}]<br>`;
+			 }
+		 }) // each
+		 
+		 
+		 
+		 // 출력
 		$('#visible').html(visi);
 		
 	}) // click
