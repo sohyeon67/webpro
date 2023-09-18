@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+
+p {
+	padding: 10px;
+	border: 2px dotted gold;
+}
+</style>
+<script>
+arr = ["국화.jpg", "딸기스무디.jpg", "무지게1.png",
+	"무지게2.png", "무지게3.png", "무지게4.png", "무지게5.png",
+	"단풍.jpg", "Koala.jpg", "spongebob.png", "Penguins.jpg"];
+
+$(function() {
+	$('#append').on('click', () => {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		// result1 추가
+		//$('#result1').append(vimg);
+		$(vimg).appendTo($('#result1'));
+		
+	})
+	
+	$('#prepend').on('click', () => {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		$('#result2').prepend(vimg);
+	})
+	
+	$('#before').on('click', () => {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		// vimg는 jquery변수
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		//$('#result3').before(vimg);
+		vimg.insertBefore($('#result3'));
+	})
+	
+	$('#after').on('click', () => {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		//$('#result4').after(vimg);
+		vimg.insertAfter($('#result4'));
+	})
+	
+	
+	$('#append2').on('click', function() {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		$('#result12').append(vimg);
+	})
+	
+	$('#prepend2').on('click', function() {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		$('#result22').prepend(vimg);
+	})
+	
+	$('#before2').on('click', function() {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		$('#result32').before(vimg);
+	})
+	
+	$('#after2').on('click', function() {
+		let rand = Math.floor(Math.random() * arr.length);
+		
+		// 이미지 태그 생성
+		vimg = $('<img>', {
+			'src' : '../images/' + arr[rand],
+			'alt' : arr[rand],
+			'click' : function() {
+				$(this).css('border', '3px double green');
+			}
+		}) // img
+		
+		$('#result42').after(vimg);
+	})
+	
+	
+}) // $(function)
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="append" id="append">
+<input type="button" value="prepend" id="prepend">
+<input type="button" value="before" id="before">
+<input type="button" value="after" id="after">
+<br><br>
+
+<div id="result1"></div>
+<div id="result2"></div>
+<div id="result3"></div>
+<div id="result4"></div>
+<hr color="red">
+<br><br>
+
+
+<h2></h2>
+<input type="button" value="append" id="append2">
+<input type="button" value="prepend" id="prepend2">
+<input type="button" value="before" id="before2">
+<input type="button" value="after" id="after2">
+<br><br>
+
+<p id="result12">코알라</p>
+<p id="result22">펭귄</p>
+<p id="result32">딸기스무디</p>
+<p id="result42">스폰지밥</p>
+<hr color="red">
+<br><br>
+</body>
+</html>

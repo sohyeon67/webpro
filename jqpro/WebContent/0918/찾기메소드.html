@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+.siblings * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+
+.start {
+  color: blue;
+  font-size: 1.5em;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$('#next').on('click', function() {
+		$("li.start").next().css({"color": "red", "border": "2px solid red"});
+	})
+	
+  	$('#nextAll').on('click', function() {
+		$("li.start").nextAll().css({"color": "green", "border": "2px solid green"});
+	})
+	
+	$('#nextUntil').on('click', function() {
+		$('#result1 li.start').nextUntil($('#result1 li:last'))	// start부터 last사이
+		.css({"color": "blue", "border": "2px solid blue"});
+	})
+	
+	$('#parent').on('click', function() {
+		$('#result2 span').parent().css({"color": "blue", "border": "2px solid blue"});
+	})
+	
+	$('#parents').on('click', function() {
+		$('#result2 span').parents().css({"color": "red", "border": "2px solid red"});
+	})
+	
+	$('#parentsel').on('click', function() {
+		$('#result2 span').parents('ul').css({"color": "green", "border": "2px solid green"})
+	})
+	
+	$('#parentsunt').on('click', function() {
+		$('#result2 span').parentsUntil($('#result2')).css({"color": "blue", "border": "2px solid blue"})
+	})
+});
+</script>
+</head>
+<body>
+
+<input type="button" value="next" id="next">
+<input type="button" value="nextAll" id="nextAll">
+<input type="button" value="nextUntil" id="nextUntil">
+<br><br>
+
+<div id="result1" style="width:500px;" class="siblings">
+  <ul>ul (parent)  
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li class="start">li (sibling with class name "start")</li>
+    <li>li (the next sibling of li with class name "start")</li>
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+    <li>li (sibling)</li>
+  </ul>   
+</div>
+
+<input type="button" value="parent" id="parent">
+<input type="button" value="parents" id="parents">
+<input type="button" value="parentsel" id="parentsel">
+<input type="button" value="parentsunt" id="parentsunt">
+<br><br>
+
+
+<div id="result2" style="width:700px;" class="siblings">
+   <div style="width:500px;">div (great-grandparent)
+    <ul>ul (grandparent)  
+      <li>li (direct parent)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+</div>
+
+
+</body>
+</html>
