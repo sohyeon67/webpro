@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(function() {
+	$('#btn1').on('click', function() {
+		//$('img').attr('title', '그림');	// 모든 img의 title속성 설정
+		
+		// attr(속성, fn)
+		$('img').attr('title', function() {
+			// 이미지의 src속성 값을 가져온다
+			vsrc = $(this).attr('src');	// this말고 img쓰면 처음img만 5번 나옴
+			
+			// src값에서 이미지의 이름을 추출한다 - substring(start, end), slice(start, end)
+			start = vsrc.lastIndexOf('/') + 1;
+			end = vsrc.lastIndexOf('.');
+			
+			vtitle = vsrc.substring(start, end);
+			
+			return vtitle;
+		}) // attr
+		
+	}) // btn1
+	
+	$('#result2 img').on('dblclick', function() {
+		//$(this).css('display', 'none');
+		$(this).hide();
+		
+		if($('#result2 img:visible').length < 1) {
+			//$('input[value=보이기]').css('display', 'block');
+			$('input[value=보이기]').show();
+		}
+	}) // img - dblclick
+	
+	$('input[value=보이기]').on('click', function() {
+		$('#result2 img').show();
+		//$('#result2 img').css('display', 'inline');
+	})
+	
+	$('#result2 img').on('mouseover', function() {
+		// 원래 이미지를 어딘가에 저장 - attr('src') - 가져오기 - mouseout이벤트에서 사용
+		temp = $(this).attr('src');
+		
+		// 대체이미지를 보여준다 - src='대체이미지' 
+		// 1. src2의 속성값을 가져온다. - attr('src2')
+		vsrc2 = $(this).attr('src2');
+		
+		// 2. src의 속성값을 변경한다. - attr('src', '대체이미지')
+		$(this).attr('src', vsrc2);
+		
+	})
+	
+	$('#result2 img').on('mouseout', function() {
+		// 원래 이미지로 변경 - attr('src', 원래이미지)
+		$(this).attr('src', temp);
+	})
+	
+	
+}) // $(function)
+</script>
+<style>
+img {
+	width: 150px;
+	height: 130px;
+}
+
+input[value=보이기] {
+	display: none;
+}
+</style>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" id="btn1">
+<br><br>
+<div id="result1">
+  <img src="../images/Tulips.jpg" alt="Tulips.jpg">
+  <img src="../images/국화.jpg" alt="국화.jpg">
+  <img src="../images/대나무숲.jpg" alt="대나무숲.jpg">
+  <img src="../images/무지게2.png" alt="무지게2.png">
+  <img src="../images/뱅쇼.jpg" alt="뱅쇼.jpg">
+</div>
+<hr color="red">
+<br><br>
+
+<h2>이미지 mouseover, mouseout, dblclick 이벤트 설정<br>
+mouseover : 다른 이미지<br>
+mouseout : 원래 이미지<br>
+dblclick : 이미지 삭제<br>
+버튼 : 다시 이미지 보이기 <br>
+- 처음 실행시 보이지 않는다/이미지가 다 사라졌을 때 보인다
+</h2>
+<br>
+<br><br>
+<div id="result2">
+  <img src="../images/Tulips.jpg" alt="Tulips.jpg" src2="../images/단풍.jpg">
+  <img src="../images/국화.jpg" alt="국화.jpg" src2="../images/딸기스무디.jpg">
+  <img src="../images/대나무숲.jpg" alt="대나무숲.jpg" src2="../images/spongebob.png">
+  <img src="../images/무지게2.png" alt="무지게2.png" src2="../images/무지게3.png">
+  <img src="../images/뱅쇼.jpg" alt="뱅쇼.jpg" src2="../images/아메리카노.jpg">
+</div>
+
+<input type="button" value="보이기">
+<hr color="red">
+<br><br>
+</body>
+</html>

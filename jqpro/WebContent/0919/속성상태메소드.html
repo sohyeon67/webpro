@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(() => {
+	
+	$('#btn1').on('click', function() {
+		// 각 요소들의 상태 값을 가져온다
+		vcheck = $('#checkTest').prop('checked');
+		vsel = $('#selTest option:eq(2)').prop('selected');
+		vtext = $('#txtTest').prop('readonly');
+		vbnt = $('#runBtn').prop('disabled');
+		
+		console.log(vcheck, vsel, vtext, vbnt);
+		
+		// 확인 버튼 클릭할 때마다 상태값을 반대로 변경
+		
+		$('#checkTest').prop('checked', !vcheck);
+		$('#selTest option:eq(2)').prop('selected', !vsel);
+		$('#txtTest').prop('readonly', !vtext);
+		$('#runBtn').prop('disabled', !vbnt);
+		
+		
+		/* if(vcheck) {
+			$('#checkTest').prop('checked', false);
+		} else {
+			$('#checkTest').prop('checked', true);
+		}
+		
+		if(vsel) {
+			$('#selTest option:eq(2)').prop('selected', false);
+		} else {
+			$('#selTest option:eq(2)').prop('selected', true);
+		} */
+		
+	})
+	
+	$('#check').on('click', function() {
+		
+		// id=check인 요소의 checked속성상태값을 가져온다
+		vchk = $(this).prop('checked');
+		
+		// class=box인 곳의 checked속성의 상태값을 vchk변수값으로 설정한다
+		$('.box').prop('checked', vchk);
+	})
+	
+})
+
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" id="btn1">
+<br><br>
+<div id="result1">
+	<form>
+	체크박스(라디오버튼) : <input type="checkbox" id="checkTest" checked><br><br>
+	
+	리스트박스(select객체) : 
+	 <select id="selTest">
+	     <option value="1">하나</option> 
+	     <option value="2">둘</option>
+	     <option value="3" selected >셋</option> 
+	     <option value="4">넷</option>
+	 </select><br><br>
+	
+	 text객체	(readonly) : 
+	 <input type="text" value="가나다" id="txtTest" readonly="readonly"><br><br>
+	
+	 button객체(disabled) : 
+	 <input type="button" value="실행" id="runBtn" 
+	 		onclick="alert('hello')">
+	</form>
+</div>
+<hr color="red">
+<br><br>
+
+
+
+<h2></h2>
+<br><br>
+<div id="result2">
+	<input type="checkbox" id="check">전체선택
+	
+	<input type="checkbox" class="box">1
+	<input type="checkbox" class="box">2
+	<input type="checkbox" class="box">3
+	<input type="checkbox" class="box">4
+	<input type="checkbox" class="box">5
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>
