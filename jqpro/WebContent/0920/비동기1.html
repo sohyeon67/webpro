@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(function() {
+	$('#send').on('click', function() {
+		//alert("submit");
+		
+		// request객체 생성
+		var xhr = new XMLHttpRequest();
+		
+		// 입력한 값 가져오기
+		vname = $('#name').val().trim();
+		vaddr = $('#addr').val();
+		vpass = $('#pass').val().trim();
+		
+		// 요청
+		data = 'name=' + vname + '&addr=' + vaddr + '&pass=' + vpass;
+		xhr.open('post', '비동기.jsp', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(data);
+		
+		/* xhr.open('get', 
+				'비동기.jsp?name=' + vname + '&addr=' + vaddr + '&pass=' + vpass, true);
+		xhr.send(); */
+		
+		// 응답
+		xhr.onreadystatechange = function() {
+			//alert(this.readyState);
+			if(this.readyState == 4 && this.status == 200) {
+				res = this.responseText;
+				
+				$('#result2').html(res);
+			}
+		}
+		
+	})
+})
+</script>
+</head>
+<body>
+
+<h2>동기처리<br>
+jsp로 페이지를 이동하여 결과를 받는다</h2>
+<form action="비동기.jsp" method="post">
+
+	이름 <input type="text" name="name"><br>
+	주소 <input type="text" name="addr"><br>
+	비밀번호 <input type="password" name="pass"><br>
+	<input type="submit" value="전송">
+	
+</form>
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+
+
+
+<h2>비동기처리<br>
+서버 처리후 페이지를 이동하지 않고 id=result2인 div에 응답을 받는다<br>
+action과 method가 없다<br>
+submit버튼을 이용하여 onclick이벤트를 설정<br>
+
+</h2>
+<form id="ff2">
+
+	이름 <input type="text" name="name" id="name"><br>
+	주소 <input type="text" name="addr" id="addr"><br>
+	비밀번호 <input type="password" name="pass" id="pass"><br>
+	<input type="button" id="send" value="전송">
+	
+</form>
+<br><br>
+<div id="result2"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

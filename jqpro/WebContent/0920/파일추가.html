@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(function() {
+	// 추가버튼 이벤트 - 이미 만들어져 있는 기존의 요소 - bind 또는 delegate
+	$('#add').on('click', function() {
+		
+		vfile = '<p><input type="file" name="file">';
+		vfile += '<input type="button" value="삭제" class="del"></p>';
+		
+		$('#result1').append(vfile);
+	})
+	
+	// 삭제버튼 이벤트 - 새롭게 생성된 요소 - delegate
+	$(document).on('click', '.del', function() {
+		//$(this).parent().empty();	// 태그는 남아 있음
+		$(this).parent().remove();
+	})
+})
+</script>
+<style>
+p {
+	border: 2px dotted green;
+}
+</style>
+</head>
+<body>
+
+<h2></h2>
+<br><br>
+<input type="file" name="file">
+<input type="button" value="추가" id="add">
+
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
