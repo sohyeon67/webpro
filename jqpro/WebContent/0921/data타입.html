@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+
+// request객체 생성 - 전역객체
+var xhr = new XMLHttpRequest();
+
+$(function() {
+	$('#text').on('click', function() {
+		
+		// 요청
+		xhr.open('get', 'text.jsp', true);
+		xhr.send();
+		
+		// 응답 - readyState - 1,2,3,4	status = 200
+		xhr.onreadystatechange = function() {
+			
+			if(this.readyState == 4 && this.status == 200) {
+				// 응답 받기 - text->json
+				res = this.responseText;
+				// res = 홍길동/개나리/진달래/무궁화/라일락/수선화
+				arr = res.split("/");
+				
+				// 출력내용
+				code = "<ul>";
+				//$(arr).each(function(i, v) { });
+				$.each(arr, function(i, v) {
+					code += "<li>" + v + "</li>";	// arr[i]
+				});
+				code += "</ul>";
+				
+				// 출력
+				$('#result1').html(code);
+				
+			} // if
+			
+		} // onreadystatechange
+		
+	}) // text click
+	
+	$('#jarr').on('click', function() {
+		
+		
+		// 요청
+		xhr.open('get', 'jsonArr.jsp', true);
+		xhr.send();
+		
+		// 응답
+		xhr.onreadystatechange = function() {
+			
+			if(this.readyState == 4 && this.status == 200) {
+				
+				res = this.responseText;
+				// res = ["김은대", "성춘향", "이쁜이", "라일락", "백장미"] - json배열 형태의 text
+				
+				// json배열 객체로 변환
+				res = JSON.parse(res);
+				
+				// 출력내용
+				code = "<ol>";
+				$.each(res, function(i, v) {
+					code += "<li>" + res[i] + "</li>";
+				});
+				code += "</ol>";
+				
+				// 출력
+				$('#result2').html(code);
+				
+			}
+		}
+		
+	}) // jarr click
+	
+	
+	$('#jobj').on('click', function() {
+		
+		// 요청
+		xhr.open('get', 'jsonObj.jsp', true);
+		xhr.send();
+		
+		// 응답
+		xhr.onreadystatechange = function() {
+			
+			if(this.readyState == 4 && this.status == 200) {
+				
+				// json객체의 형태를 갖는 text데이터
+				res = this.responseText;
+				
+				// text로 받은 res를 json객체로 변환
+				res = JSON.parse(res);
+				
+				// 출력 내용
+				code = "이름 : " + res.name + "<br>";
+				code += "아이디 : " + res.id + "<br>";
+				code += "전화번호 : " + res.tel + "<br>";
+				code += "주소 : " + res.addr + "<br>";
+				code += "이메일 : " + res.email + "<br>";
+				
+				// 출력
+				$('#result3').html(code);
+			}
+		}
+		
+	}) // jobj click
+	
+	$('#jarob').on('click', function() {
+		
+		// 요청
+		xhr.open('get', 'jsonArrObj.jsp', true);
+		xhr.send();
+		
+		// 응답
+		xhr.onreadystatechange = function() {
+			
+			if(this.readyState == 4 && this.status == 200) {
+				
+				res = JSON.parse(this.responseText);
+				
+				// 출력 내용
+				code = "";
+				$.each(res, function(i, v) {
+					code += (i+1) + "번째 고객 ****<br>";
+					code += "이름 : " + v.name + "<br>";
+					code += "아이디 : " + v.id + "<br>";
+					code += "전화번호 : " + v.tel + "<br>";
+					code += "주소 : " + v.addr + "<br>";
+					code += "이메일 : " + v.email + "<br><br>";
+				});
+				
+				// 출력
+				$('#result4').html(code);
+			}
+			
+		}
+		
+	}) // jarob click
+	
+}) // $(function)
+</script>
+<style>
+#result {
+	display: flex;
+	flex-direction: row;
+}
+#result div {
+	box-sizing: border-box;/* border-box는 margin빼고 다, content-box는 내용만 */
+	flex: 25%;
+	margin: 2px;
+	padding: 5px;
+}
+</style>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="text" id="text">
+<input type="button" value="json배열" id="jarr">
+<input type="button" value="json객체" id="jobj">
+<input type="button" value="json배열객체" id="jarob">
+<br><br>
+<div id="result">
+	<div id="result1"></div>
+	<div id="result2"></div>
+	<div id="result3"></div>
+	<div id="result4"></div>
+</div>
+<hr color="red">
+<br><br>
+</body>
+</html>
