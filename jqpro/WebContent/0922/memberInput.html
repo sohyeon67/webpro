@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(function() {
+	$('#send').on('click', function() {
+		// 입력한 값을 가져온다
+		idvalue = $('#id').val().trim();
+		passvalue = $('#pass').val().trim();
+		
+		// 서버로 보내서
+		$.ajax({
+			url : 'memberInput.jsp',
+			type : 'post',
+			//data : "id=" + idvalue + "&pass=" + passvalue,
+			data : {
+				"id" : idvalue,
+				"pass" : passvalue
+			},
+			success : function(res) {
+				
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);	// 200이면 파싱오류
+			}
+			dataType : 'json'
+		})		
+	})
+})
+</script>
+</head>
+<body>
+
+<h2></h2>
+<form>
+	<label>아이디</label>
+	<input type="text" name="id" id="id" required="required"><br>
+	
+	<label>비밀번호</label>
+	<input type="password" name="pass" id="pass" required="required"><br>
+	
+	
+
+	<input type="button" value="확인" id="send">
+</form>
+
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>

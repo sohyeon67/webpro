@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(function() {
+	$('#member').on('click', function() {
+		
+		//$.get('member.jsp', function() {}, 'json');
+		//$.getJSON('member.jsp', function() {});
+		
+		$.ajax({
+			url : 'member.jsp',
+			type : 'get',
+			success : function(res) { // 결과(res)가 json타입
+				
+				// 출력내용
+				code = "<table class='table table-hover' border='1'>";
+				code += "<tr><th>아이디</th>";
+				code += "<th>이름</th><th>주소</th>";
+				code += "<th>전화번호</th></tr>";
+				
+				$.each(res, function(i, v) {
+					code += "<tr><td>" + res[i].id + "</td>";
+					code += "<td>" + res[i].name + "</td><td>" + v.addr + "</td>";
+					code += "<td>" + v.hp  + "</td></tr>";
+				})				
+				code += "</table>";
+				
+				// 출력
+				$('#result1').html(code);
+				
+			},
+			error : function(xhr) {
+				
+			},
+			dataType : 'json'
+		});
+		
+	})
+})
+</script>
+</head>
+<body>
+
+<h2></h2>
+<input type="button" value="확인" id="member">
+<br><br>
+<div id="result1"></div>
+<hr color="red">
+<br><br>
+</body>
+</html>
