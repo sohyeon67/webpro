@@ -38,4 +38,8 @@
 	 	select * from member
 	 </select>
 	 
+	 <select id="selectById" parameterType="map" resultType="memberVo">
+	 	select * from member where mem_id=#{} and mem_pass = #{}
+	 </select>
+	 
 </mapper>
