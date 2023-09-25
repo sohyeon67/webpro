@@ -39,7 +39,8 @@
 	 </select>
 	 
 	 <select id="selectById" parameterType="map" resultType="memberVo">
-	 	select * from member where mem_id=#{} and mem_pass = #{}
+	 	<!-- map의 키 이름과 동일해야 함 -->
+	 	select * from member where mem_id=#{id} and mem_pass = #{pass}
 	 </select>
 	 
 </mapper>
