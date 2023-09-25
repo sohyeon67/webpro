@@ -22,11 +22,38 @@ $(function() {
 				"pass" : passvalue
 			},
 			success : function(res) {
-				
+				if(res.exist == "yes") {
+					//alert("데이터 출력");
+					
+					code = `<table>`;
+					
+					code += `<tr><td>아이디</td>`;
+					code += `<td>${res.id}</td></tr>`;
+					
+					code += `<tr><td>이름</td>`;
+					code += `<td>${res.name}</td></tr>`;
+					
+					code += `<tr><td>전화번호</td>`;
+					code += `<td>${res.hp}</td></tr>`;
+					
+					code += `<tr><td>메일</td>`;
+					code += `<td>${res.mail}</td></tr>`;
+					
+					code += `<tr><td>주소</td>`;
+					code += `<td>${res.addr}</td></tr>`;
+					
+					code += `</table>`;
+					
+					$('#result1').html(code);
+					
+					
+				} else {
+					alert("찾을 수 없는 데이터");
+				}
 			},
 			error : function(xhr) {
 				alert("상태 : " + xhr.status);	// 200이면 파싱오류
-			}
+			},
 			dataType : 'json'
 		})		
 	})
