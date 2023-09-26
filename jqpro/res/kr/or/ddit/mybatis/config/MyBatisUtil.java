@@ -34,7 +34,9 @@ public class MyBatisUtil {
 	// SqlSessionFactory객체의 openSession()메서드를 이용하여 
 	//   SQL문을 호출해서 실행할 수 있는 SqlSession객체를 생성한다.
 	public static SqlSession getSqlSession() {
-		session = sqlSessionFactory.openSession();
+		session = sqlSessionFactory.openSession();	
+		// SqlSession 객체를 얻을 때 openSession(true)와 같이 호출하면 
+		// INSERT, UPDATE, DELETE문 실행 시 auto commit을 수행하는 SqlSession 객체를 얻을 수 있다.
 		
 		return session;
 	}
