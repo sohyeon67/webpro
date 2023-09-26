@@ -39,7 +39,69 @@ $(function() {
 			},
 			dataType : 'json'
 		})
+	}) // btn1
+	
+	
+	$('#btn2').on('click', function() {
+		// 입력한 값 가져오기
+		vid = $('#id').val().trim();
+		
+		// 입력 여부 확인
+		if(vid.length < 1) {
+			alert("id입력~~");
+			return false;
+		}
+		
+		
+		vpass = $('#pass').val().trim();
+		if(vpass.length < 1) {
+			alert("pass입력~~");
+			return false;
+		}
+		
+		// 모두 입력되었으면 서버로 보내기
+		$.ajax({
+			url : '/jqpro/SelectById.do',	// http://localhost/jqpro/SelectById.do
+			type : 'post',
+			data : { "id" : vid, "pass" : vpass },
+			success : function(res) {
+				if(res.sw == "ok") {
+					// 출력
+					code = `<table>`;
+					
+					code += `<tr><td>아이디</td>`;
+					code += `<td>${res.id}</td></tr>`;
+					
+					code += `<tr><td>이름</td>`;
+					code += `<td>${res.name}</td></tr>`;
+					
+					code += `<tr><td>전화번호</td>`;
+					code += `<td>${res.hp}</td></tr>`;
+					
+					code += `<tr><td>메일</td>`;
+					code += `<td>${res.mail}</td></tr>`;
+					
+					code += `<tr><td>주소</td>`;
+					code += `<td>${res.addr}</td></tr>`;
+					
+					code += `</table>`;
+					
+					$('#result2').html(code);
+					
+					
+				} else {
+					alert("일치하는 데이터가 없습니다.");
+				}
+			},
+			error : function(xhr, textStatus, err) {
+				alert("상태: " + xhr.status + "\n" 
+						+ xhr.statusText + "\n" + err);
+			},
+			dataType : 'json'
+		})
 	})
+	
+	
 })
 
 </script>
@@ -54,7 +116,11 @@ $(function() {
 <br><br>
 
 <h2>입력 데이터 가져오기</h2>
-<input type="button" value="확인" id="btn2">
+<form>
+	<input type="text" id="id" placeholder="아이디입력"><br>
+	<input type="password" id="pass" placeholder="비밀번호입력"><br>
+	<input type="button" value="확인" id="btn2">
+</form>
 <br><br>
 <div id="result2"></div>
 <hr color="red">
