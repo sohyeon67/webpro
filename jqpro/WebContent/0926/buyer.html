@@ -5,8 +5,49 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/public.css">
 <script src="../js/jquery-3.7.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 $(function() {
+	
+	// p태그로 만들어진 buyer이름을 클릭하면
+	$(document).on('click', 'p', function() {
+		
+		//alert($(this).attr('class'));
+		buyerId = $(this).attr('class');
+		
+		$.ajax({
+			url : "http://localhost/jqpro/BuyerDetail.do",
+			method : 'post',
+			data : { "id" : buyerId },
+			success : function(res) {
+				
+				code = "<table class='table table-striped'>";
+				code += `<tr><td>BUYER_ID</td><td>${res.buyer_id}</td></tr>`;
+				code += `<tr><td>BUYER_NAME</td><td>${res.buyer_name}</td></tr>`;
+				code += `<tr><td>BUYER_LGU</td><td>${res.buyer_lgu}</td></tr>`;
+				code += `<tr><td>BUYER_BANK</td><td>${res.buyer_bank}</td></tr>`;
+				code += `<tr><td>BUYER_BANKNO</td><td>${res.buyer_bankno}</td></tr>`;
+				code += `<tr><td>BUYER_BANKNAME</td><td>${res.buyer_bankname}</td></tr>`;
+				code += `<tr><td>BUYER_MAIL</td><td>${res.buyer_mail}</td></tr>`;
+				code += `<tr><td>BUYER_ZIP</td><td>${res.buyer_zip}</td></tr>`;
+				code += `<tr><td>BUYER_ADD1</td><td>${res.buyer_add1}</td></tr>`;
+				code += `<tr><td>BUYER_ADD2</td><td>${res.buyer_add2}</td></tr>`;
+				code += "</table>";
+				
+				$('#detail').html(code);
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+		
+	});
+	
+	
+	
 	$('#btn1').on('click', function() {
 		$.ajax({
 			url : "http://localhost/jqpro/SelectName.do",
@@ -45,8 +86,15 @@ td {
 	font-size: 1.5rem;
 }
 #detail {
-	width: 500px;
+	width: 550px;
 }
+p:hover {
+	background: crimson;
+}
+p {
+	margin: 10px;
+}
+
 </style>
 </head>
 <body>
