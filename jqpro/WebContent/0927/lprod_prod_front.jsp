@@ -4,11 +4,108 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored="true" %>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+$(function() {
+	// lprodlist 출력
+	$('#btn1').on('click', function() {
+		
+		// 단축메뉴, 각 자리에 값만 써주면 됨
+		//$.get(url, data, success, dataType)
+		<%-- $.get(
+				'<%= request.getContextPath() %>/LprodList.do',
+				function(res) {
+					
+				}, 
+				'json') --%>
+		
+		
+		//$.getJSON(url, data, success)
+		<%-- $.getJSON(
+				'<%= request.getContextPath() %>/LprodList.do', 
+				function(res) {
+					
+				}) --%>
+		
+		$.ajax({
+			url : '<%= request.getContextPath() %>/LprodList.do',
+			type: 'get',
+			success : function(res) {
+				code = "";
+				
+				$.each(res, function(i, v) {
+					code += `<option value="${v.lprod_gu}">${v.lprod_nm}</option>`;
+				})
+				
+				$('#lprod').html(code);
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+	
+	// lprod의 결과 중 option 하나를 선택하면
+	$(document).on('change', '#lprod', function() {
+		
+		//alert($('option:selected', this).val());
+		vdata = $('option:selected', this).val();
+		
+		$.ajax({
+			url : '<%= request.getContextPath()%>/ProdList.do',
+			type : 'get',
+			data : { "lgu" : vdata },
+			success : function(res) {
+				code = "";
+				
+				if(res.sw == "ok") {
+					$.each(res.datas, function(i, v) {
+						code += `<option value="${v.prod_id}">${v.prod_name}</option>`;
+					})
+				} else {
+					code += `<option value="0">데이터 없음</option>`;
+				}
+				
+				$('#prod').html(code);
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+	// prod list 결과 중 option 하나를 선택하면
+	$(document).on('change', '#prod', function() {
+		
+		//alert($('option:selected', this).val());
+		vdata = $('option:selected', this).val();
+		
+		$.ajax({
+			url : '<%= request.getContextPath()%>/ProdDetail.do',
+			type : 'post',
+			data : { "pid" : vdata },
+			success : function(res) {
+				
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+})
+</script>
 </head>
 <body>
 <input type="button" value="확인" id="btn1">
