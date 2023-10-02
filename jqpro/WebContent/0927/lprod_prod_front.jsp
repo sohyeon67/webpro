@@ -90,12 +90,25 @@ $(function() {
 		//alert($('option:selected', this).val());
 		vdata = $('option:selected', this).val();
 		
+		if(vdata == 0) return false;
 		$.ajax({
 			url : '<%= request.getContextPath()%>/ProdDetail.do',
 			type : 'post',
 			data : { "pid" : vdata },
 			success : function(res) {
+				code = `<table border='1'>`;
+				code += `<tr><td>항목</td><td>내용</td></tr>`;
+				code += `<tr><td>PROD_ID</td><td>${res.prod_id}</td></tr>`;
+				code += `<tr><td>PROD_NAME</td><td>${res.prod_name}</td></tr>`;
+				code += `<tr><td>PROD_LGU</td><td>${res.prod_lgu}</td></tr>`;
+				code += `<tr><td>PROD_COST</td><td>${res.prod_cost}</td></tr>`;
+				code += `<tr><td>PROD_PRICE</td><td>${res.prod_price}</td></tr>`;
+				code += `<tr><td>PROD_SALE</td><td>${res.prod_sale}</td></tr>`;
+				code += `<tr><td>PROD_OUTLINE</td><td>${res.prod_outline}</td></tr>`;
+				code += `<tr><td>PROD_DETAIL</td><td>${res.prod_detail}</td></tr>`;
+				code += `</table>`;
 				
+				$('#result1').html(code);
 			},
 			error : function(xhr) {
 				alert("상태 : " + xhr.status);
