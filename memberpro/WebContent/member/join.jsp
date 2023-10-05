@@ -24,7 +24,7 @@ $(function() {
 		console.log(idvalue);
 		
 		// 값의 형식비교
-		idreg = /^[a-z][a-zA-Z0-9]{3,7}$/
+		idreg = /^[a-z][a-zA-Z0-9]{3,7}$/;
 		if(!(idreg.test(idvalue))) {
 			alert("id형식오류 입니다");
 			return false;
@@ -44,6 +44,57 @@ $(function() {
 			dataType : 'json'
 		})
 	})
+	
+	// 우편번호 검색
+	$('#zipbtn').on('click', function() {
+		window.open("searchDong.html", "우편번호찾기", "width=500 height=400");
+	})
+	
+	// submit버튼이 아니고 type=button일 경우
+	$('button[type=button]').on('click', function() {
+		
+		/* // 입력한 모든 값을 가져온다
+		idvalue = $('#id').val();
+		// 공백 또는 형식 체크 - return false;
+		namevalue = $('#name').val();
+		birvalue = $('#bir').val();
+		passvalue = $('#pwd').val();
+		hpvalue = $('#hp').val();
+		emailvalue = $('#email').val();
+		zipvalue = $('#zip').val();
+		add1value = $('#add1').val();
+		add2value = $('#add2').val();
+		
+		vdata = {	"id" : idvalue, 
+					"name" : namevalue, 
+					"bir" : birvalue,
+					"pass" : passvalue,
+					"hp" : passvalue,
+					"email" : emailvalue,
+					"zip" : zipvalue,
+					"add1" : add1value,
+					"add2" : add2value
+				}; */
+				
+		// name 속성을 이용하여 자동으로 만들기
+		vdata = $('form').serializeArray();
+		console.log(vdata);
+		
+		$.ajax({
+			url : "<%= request.getContextPath()%>/Insert.do",
+			data : vdata,
+			type : 'post',
+			success : function(res) {
+				//location.href="http://www.naver.com";	// 서블릿으로 보내거나?
+				$('#join').html(res.sw).css('color', 'red');
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
 })
 </script>
 </head>
@@ -100,7 +151,7 @@ $(function() {
       <input type="text" class="form-control" id="add2" name="mem_add2">
     </div>
 
-    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+    <button type="button" class="btn btn-primary btn-lg">Submit</button>
     <span id="join"></span>
   </form>
 </div>

@@ -103,7 +103,7 @@ public class MemberDaoImpl implements IMemberDao {
 		int cnt = 0;
 		
 		try {
-			cnt = session.insert("member.inertMember", vo);
+			cnt = session.insert("member.insertMember", vo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
