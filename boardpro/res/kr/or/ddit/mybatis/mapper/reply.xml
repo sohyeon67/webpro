@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="reply">
+
+	<!-- 댓글 저장 -->
+	<insert id="insertReply" parameterType="replyVo">
+		insert into replytab () values ()
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="int">
+		delete from replytab where renum = #{renum}
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateReply" parameterType="replyVo">
+		update replytab set cont = #{cont}, redate = #{redate} where renum = #{renum}
+	</update>
+	
+	<!-- 댓글 리스트 -->
+	<select id="listReply" parameterType="int" resultType="replyVo">
+		select * from replytab where bonum = #{bonum}
+	</select>
+
+</mapper>

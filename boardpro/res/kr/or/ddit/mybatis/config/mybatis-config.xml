@@ -20,7 +20,9 @@
 		형식) <typeAlias type="패키지명이 포함된 전체 클래스명" alias="별칭이름"/>
 	 -->
 	 <typeAliases>
-	 	
+	 	<typeAlias type="kr.or.ddit.member.vo.MemberVO" alias="memVo"/>
+	 	<typeAlias type="kr.or.ddit.board.vo.BoardVO" alias="boardVo"/>
+	 	<typeAlias type="kr.or.ddit.reply.vo.ReplyVO" alias="replyVo"/>
 	 </typeAliases>
 	 
 	 <!-- DB연결 설정 -->
@@ -40,9 +42,8 @@
 	 <!-- 형식) <mapper resource="경로명/파일명.xml"/> -->
 	 <mappers>
 	 	<mapper resource="kr/or/ddit/mybatis/mapper/member.xml"/>
-	 	<mapper resource="kr/or/ddit/mybatis/mapper/buyer.xml"/>
-	 	<mapper resource="kr/or/ddit/mybatis/mapper/lprod.xml"/>
-	 	<mapper resource="kr/or/ddit/mybatis/mapper/prod.xml"/>
+	 	<mapper resource="kr/or/ddit/mybatis/mapper/board.xml"/>
+	 	<!-- <mapper resource="kr/or/ddit/mybatis/mapper/reply.xml"/> -->
 	 </mappers>
 	 
 	 
