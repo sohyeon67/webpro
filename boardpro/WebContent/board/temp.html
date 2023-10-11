@@ -42,10 +42,18 @@
       </div>
       <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
         <div class="card-body">
-			<p class="pp">
-				<p class="p1">작성자 이메일 조회수 날짜</p>
-				<p class="p2">수정삭제버튼</p>
-			</p>
+			<div class="pp">
+				<p class="p1">
+					작성자<span class="writer"></span>
+					이메일<span class="emmail"></span>
+					조회수<span class="hit"></span>
+					날짜<span class="date"></span>
+				</p>
+				<p class="p2">
+					<input idx="글번호" type="button" value="수정" class="action" name="modify">
+					<input idx="글번호" type="button" value="삭제" class="action" name="delete">
+				</p>
+			</div>
 			<p class="p3">내용</p>
 			<p class="p4">댓글쓰기 textarea 등록버튼</p>
         </div>

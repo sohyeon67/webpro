@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import kr.or.ddit.board.vo.BoardVO;
+import kr.or.ddit.board.vo.PageVO;
 
 public interface IBoardService {
 	
@@ -24,5 +25,8 @@ public interface IBoardService {
 	
 	// 조회수 증가
 	public int updateHit(int bno);
+	
+	// 페이지별 정보구하기 - start, end, 총페이지수
+	public PageVO pageInfo(int page, String stype, String sword);
 	
 }
