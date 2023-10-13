@@ -36,7 +36,7 @@
 	<insert id="insertBoard" parameterType="boardVo">
 		insert into boardtab 
 				(num, subject, writer, mail, password, content, hit, wip, wdate) 
-			values (boardtab_num_seq.nextval, #{subject}, #{writer}, #{mail}, #{password}, #{content}, #{hit}, #{wip}, sysdate)
+			values (boardtab_num_seq.nextval, #{subject}, #{writer}, #{mail}, #{password}, #{content}, 0, #{wip}, sysdate)
 	</insert>
 	
 	<!-- 삭제 -->
@@ -46,8 +46,13 @@
 	
 	<!-- 수정 -->
 	<update id="updateBoard" parameterType="boardVo">
-		update boardtab set subject = #{subject}, mail = #{mail}, 
-					content = #{content}, wip = #{wip}, wdate = sysdate
+		update boardtab set 
+					subject = #{subject}, 
+					mail = #{mail}, 
+					password = #{password},
+					content = #{content}, 
+					wip = #{wip}, 
+					wdate = sysdate
 			where num = #{num}
 	</update>
 	
