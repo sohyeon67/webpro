@@ -18,7 +18,7 @@
 	
 	<!-- 댓글 수정 -->
 	<update id="updateReply" parameterType="replyVo">
-		update replytab set cont = #{cont}, redate = #{redate} where renum = #{renum}
+		update replytab set cont = #{cont} where renum = #{renum}
 	</update>
 	
 	<!-- 댓글 리스트 -->

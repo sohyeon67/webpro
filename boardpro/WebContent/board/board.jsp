@@ -149,7 +149,29 @@ $(function() {
 		} else if(vname == "r_modify") {
 			//alert(vidx + "번 댓글을 수정합니다.");
 			
+			// 댓글 수정폼이 이미 열려있는지 비교
+			if($('#modifyform').css('display') != "none") {
+				replyReset();
+			}
 			
+			// 댓글 위치의 요소(p3) 접근
+			vp3 = $(this).parents('.reply-body').find('.p3');
+			
+			// 댓글 원래 내용 가져오기
+			vcontsrc = vp3.html().trim();	// br태그가 포함
+			
+			// <br>을 \n으로 변경
+			vcont = vcontsrc.replace(/<br>/g, "\n");
+			
+			// modifyform의 mtext에 출력
+			$('#modifyform #mtext').val(vcont);
+			
+			// modifyform을 현재 p3위치로 append
+			vp3.empty().append($('#modifyform'));
+			
+			// modifyform을 show
+			//$('#modifyform').show();
+			$('#modifyform').css('display', 'block');
 			
 		} else if(vname == "r_delete") {
 			//alert(vidx + "번 댓글을 삭제합니다.");
@@ -159,6 +181,48 @@ $(function() {
 			
 		}
 	}) // click 이벤트
+	
+	// 댓글 수정에서 확인 버튼 클릭
+	$('#mok').on('click', function() {
+		// modifycont - 수정된 내용 - 가져오기
+		vnewcontsrc = $('#modifyform #mtext').val();	// \r\n이 포함
+		
+		// \r\n을 <br>로 변경 - db수정 성공 후 쓰일 변수
+		vnewcont = vnewcontsrc.replace(/\n/g, "<br>");
+		
+		// p3을 검색 - ajax를 통해서 db수정 - 성공 후 화면을 변경
+		vp3 = $('#modifyform').parent();
+		
+		// modifyform을 다시 body로 이동 - hide
+		// $('body').append($('#modifyform'));
+		$('#modifyform').appendTo($('body'));
+		$('#modifyform').hide();
+		
+		// ajax수행 - cont, renum 필요
+		reply.cont = vnewcontsrc;
+		reply.renum = vidx;
+		$.updateReplyServer();
+	});
+	
+	// 댓글 수정에서 취소 버튼 - 원래 내용
+	$('#mcancel').on('click', function() {
+		replyReset();
+	});
+	
+	
+	// 댓글 수정시 확인 또는 취소 버튼 클릭시 modifyform을 body로 다시 옮겨놓는다
+	replyReset = function() {
+		
+		// p3, 또는 rp3 
+		vmp = $('#modifyform').parent();
+		
+		// 수정폼을 body태그로 다시 이동 - append
+		$('body').append($('#modifyform'));
+		$('#modifyform').hide();
+		
+		// p3에 원래 내용을 출력
+		$(vmp).html(vcontsrc);
+	}
 	
 	// 글쓰기 이벤트
 	$('#bwrite').on('click', function() {

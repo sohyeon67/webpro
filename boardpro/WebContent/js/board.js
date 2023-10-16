@@ -1,6 +1,26 @@
 /**
  * 
  */
+// 댓글 수정하기
+$.updateReplyServer = function() {
+	
+	$.ajax({
+		url : `${mypath}/ReplyUpdate.do`,
+		type : 'post',
+		data : reply,	// cont, renum
+		success : function(res) {
+			// 성공 후 화면 변경
+			if(res.sw == "성공") {
+				$(vp3).html(vnewcont);
+			}
+		},
+		error : function(xhr) {
+			alert("상태 : " + xhr.status);
+		},
+		dataType : 'json'
+	})
+	
+}
 
 // 게시판 글 수정
 //function $.updateBoardServer() { }
@@ -13,7 +33,6 @@ $.updateBoardServer = function() {
 		// vdata는 수정창에서 전송 버튼을 클릭했을 때 form의 내용들
 		data : vdata,	// num, writer, subject, , password, mail, content
 		success : function(res) {
-			
 			if(res.sw == "성공") {
 				// vdata의 내용으로 화면의 본문 내용을 변경
 				// 수정된 내용으로 변경
